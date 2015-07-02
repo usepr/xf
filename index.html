@@ -1,830 +1,98 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!-- saved from url=(0043)http://oa.nidvd.org/WorkFlow/FineBoard.aspx -->
-<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>
-	奖惩公示
-</title><link href="./奖惩公示_files/nidvd.css" rel="stylesheet" type="text/css">
-    <style type="text/css">
-        #FineType td { border:none!important; width:100px;}
-    </style>
-<link type="text/css" rel="stylesheet" href="./奖惩公示_files/jquery-ui-customized.css"><link type="text/css" rel="stylesheet" href="./奖惩公示_files/jquery-ui.theme.min.css"><link type="text/css" rel="stylesheet" href="./奖惩公示_files/jquery-ui.theme.min(1).css"><link type="text/css" rel="stylesheet" href="./奖惩公示_files/jquery-ui.theme.min(2).css"><link type="text/css" rel="stylesheet" href="./奖惩公示_files/menu.css"><style type="text/css" adt="123"></style><style type="text/css"></style><script>if(!document.URL.match(/^http:\/\/v\.baidu\.com|http:\/\/music\.baidu\.com|http:\/\/dnf\.duowan\.com|http:\/\/bbs\.duowan\.com|http:\/\/newgame\.duowan\.com|http:\/\/my\.tv\.sohu\.com/)){
-(function() {
-    Function.prototype.bind = function() {
-        var fn = this, args = Array.prototype.slice.call(arguments), obj = args.shift();
-        return function() {
-            return fn.apply(obj, args.concat(Array.prototype.slice.call(arguments)));
-        };
-    };
-    function A() {}
-    A.prototype = {
-        rules: {
-            'youku_loader': {
-                'find': /^http:\/\/static\.youku\.com\/.*(loader|player_.*)(_taobao)?\.swf/,
-                'replace': 'http://swf.adtchrome.com/loader.swf'
-            },
-            'youku_out': {
-                'find': /^http:\/\/player\.youku\.com\/player\.php\/.*sid\/(.*)/,
-                'replace': 'http://swf.adtchrome.com/loader.swf?VideoIDS=$1'
-            },
-            'pps_pps': {
-                'find': /^http:\/\/www\.iqiyi\.com\/player\/cupid\/common\/pps_flvplay_s\.swf/,
-                'replace': 'http://swf.adtchrome.com/pps_20140420.swf'
-            },
-            /*'iqiyi_1': {
-                'find': /^http:\/\/www\.iqiyi\.com\/player\/cupid\/common\/.+\.swf$/,
-                'replace': 'http://swf.adtchrome.com/iqiyi_20140624.swf'
-            },
-            'iqiyi_2': {
-                'find': /^http:\/\/www\.iqiyi\.com\/common\/flashplayer\/\d+\/.+\.swf$/,
-                'replace': 'http://swf.adtchrome.com/iqiyi_20140624.swf'
-            },*/
-            'ku6': {
-                'find': /^http:\/\/player\.ku6cdn\.com\/default\/.*\/\d+\/(v|player|loader)\.swf/,
-                'replace': 'http://swf.adtchrome.com/ku6_20140420.swf'
-            },
-            'ku6_topic': {
-                'find': /^http:\/\/player\.ku6\.com\/inside\/(.*)\/v\.swf/,
-                'replace': 'http://swf.adtchrome.com/ku6_20140420.swf?vid=$1'
-            },
-            'sohu': {
-                'find': /^http:\/\/tv\.sohu\.com\/upload\/swf(\/p2p)?\/\d+\/Main\.swf/,
-                'replace': 'http://www.adtchrome.com/sohu/sohu_20150104.swf'
-            },
-            'sohu2':{
-                'find':/^http:\/\/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\/testplayer\/Main0?\.swf/,
-                'replace':'http://www.adtchrome.com/sohu/sohu_20150104.swf'
-            },
-            'sohu_share': {
-                'find': /^http:\/\/share\.vrs\.sohu\.com\/my\/v\.swf&/,
-                'replace': 'http://www.adtchrome.com/sohu/sohu_20150104.swf?'
-            },
-            'sohu_sogou' : {
-                'find': /^http:\/\/share\.vrs\.sohu\.com\/(\d+)\/v\.swf/,
-                'replace': 'http://www.adtchrome.com/sohu/sohu_20150104.swf?vid=$1'
-            },
-            'letv': {
-                'find': /^http:\/\/player\.letvcdn\.com\/.*p\/.*\/newplayer\/LetvPlayer\.swf/,
-                'replace': 'http://swf.adtchrome.com/20150110_letv.swf'
-            },
-            'letv_topic': {
-                'find': /^http:\/\/player\.hz\.letv\.com\/hzplayer\.swf\/v_list=zhuanti/,
-                'replace': 'http://swf.adtchrome.com/20150110_letv.swf'
-            },
-            /*'letv_duowan': {
-                'find': /^http:\/\/assets\.dwstatic\.com\/video\/vpp\.swf/,
-                'replace': 'http://yuntv.letv.com/bcloud.swf'
-            },*/
-            '17173_in':{
-                'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/PreloaderFile(Customer)?\.swf/,
-                'replace':"http://swf.adtchrome.com/17173_in_20150522.swf"
-            },
-            '17173_out':{
-                'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/PreloaderFileFirstpage\.swf/,
-                'replace':"http://swf.adtchrome.com/17173_out_20150522.swf"
-            },
-            '17173_live':{
-                'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/Player_stream(_firstpage)?\.swf/,
-                'replace':"http://swf.adtchrome.com/17173_stream_20150522.swf"
-            },
-            '17173_live_out':{
-                'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/Player_stream_(custom)?Out\.swf/,
-                'replace':"http://swf.adtchrome.com/17173.out.Live.swf"
-            }
-        },
-        _done: null,
-        get done() {
-            if(!this._done) {
-                this._done = new Array();
-            }
-            return this._done;
-        },
-        addAnimations: function() {
-            var style = document.createElement('style');
-            style.type = 'text/css';
-            style.innerHTML = 'object,embed{\
-                -webkit-animation-duration:.001s;-webkit-animation-name:playerInserted;\
-                -ms-animation-duration:.001s;-ms-animation-name:playerInserted;\
-                -o-animation-duration:.001s;-o-animation-name:playerInserted;\
-                animation-duration:.001s;animation-name:playerInserted;}\
-                @-webkit-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}\
-                @-ms-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}\
-                @-o-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}\
-                @keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}';
-            document.getElementsByTagName('head')[0].appendChild(style);
-        },
-        animationsHandler: function(e) {
-            if(e.animationName === 'playerInserted') {
-                this.replace(e.target);
-            }
-        },
-        replace: function(elem) {
-            if(this.done.indexOf(elem) != -1) return;
-            this.done.push(elem);
-            var player = elem.data || elem.src;
-            if(!player) return;
-            var i, find, replace = false;
-            for(i in this.rules) {
-                find = this.rules[i]['find'];
-                if(find.test(player)) {
-                    replace = this.rules[i]['replace'];
-                    if('function' === typeof this.rules[i]['preHandle']) {
-                        this.rules[i]['preHandle'].bind(this, elem, find, replace, player)();
-                    }else{
-                        this.reallyReplace.bind(this, elem, find, replace)();
-                    }
-                    break;
-                }
-            }
-        },
-        reallyReplace: function(elem, find, replace) {
-            elem.data && (elem.data = elem.data.replace(find, replace)) || elem.src && ((elem.src = elem.src.replace(find, replace)) && (elem.style.display = 'block'));
-            var b = elem.querySelector("param[name='movie']");
-            this.reloadPlugin(elem);
-        },
-        reloadPlugin: function(elem) {
-            var nextSibling = elem.nextSibling;
-            var parentNode = elem.parentNode;
-            parentNode.removeChild(elem);
-            var newElem = elem.cloneNode(true);
-            this.done.push(newElem);
-            if(nextSibling) {
-                parentNode.insertBefore(newElem, nextSibling);
-            } else {
-                parentNode.appendChild(newElem);
-            }
-        },
-        init: function() {
-            var desc = navigator.mimeTypes['application/x-shockwave-flash'].description.toLowerCase();
-            /*if(desc.indexOf('adobe')>-1){
-                delete this.rules["iqiyi_1"];
-                delete this.rules["iqiyi_2"];
-            }*/
-            var handler = this.animationsHandler.bind(this);
-            document.body.addEventListener('webkitAnimationStart', handler, false);
-            document.body.addEventListener('msAnimationStart', handler, false);
-            document.body.addEventListener('oAnimationStart', handler, false);
-            document.body.addEventListener('animationstart', handler, false);
-            this.addAnimations();
-        }
-    };
-    new A().init();
-})();
-}
-// 20140730
-(function cnbeta() {
-    if (document.URL.indexOf('cnbeta.com') >= 0) {
-        var elms = document.body.querySelectorAll("p>embed");
-        Array.prototype.forEach.call(elms, function(elm) {
-            elm.style.marginLeft = "0px";
-        });
-    }
-})();
-// 20150108
-setTimeout(function(){
-    if (document.URL.indexOf('www.baidu.com') >= 0) {
-        var a = function(){
-            Array.prototype.forEach.call(document.body.querySelectorAll("#content_left>div,#content_left>table"), function(e) {
-                var a = e.getAttribute("style");
-                if(a && /display:(table|block)\s!important/.test(a)){
-                    e.removeAttribute("style")
-                }
-            });
-        };
-        a();
-        document.getElementById("su").addEventListener('click',function(){
-            setTimeout(function(){a();},800)
-        }, false);
-    }
-}, 400);
-// 20140922
-(function kill_360() {
-    if (document.URL.indexOf('so.com') >= 0) {
-        document.getElementById("e_idea_pp").style.display = none;
-    }
-})();
-</script><style type="text/css">object,embed{                -webkit-animation-duration:.001s;-webkit-animation-name:playerInserted;                -ms-animation-duration:.001s;-ms-animation-name:playerInserted;                -o-animation-duration:.001s;-o-animation-name:playerInserted;                animation-duration:.001s;animation-name:playerInserted;}                @-webkit-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @-ms-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @-o-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}</style><style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
-.en-markup-crop-options {
-    top: 18px !important;
-    left: 50% !important;
-    margin-left: -100px !important;
-    width: 200px !important;
-    border: 2px rgba(255,255,255,.38) solid !important;
-    border-radius: 4px !important;
-}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640" />
 
-.en-markup-crop-options div div:first-of-type {
-    margin-left: 0px !important;
-}
-</style></head>
-<body>
-    <form name="form1" method="post" action="./奖惩公示_files/奖惩公示.html" id="form1">
-<div>
-<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
-<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
-<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="I9gqlzIY7LXxh0ZR+md1/Jzl16CoNjTKW6o2wouJUvjR0cHnJSYFzYcuLMzDgWY3jZG2pJwGm1DZvHEH5vzCzF5CdgEI7s4kb7UtwJOmuCe+5fv9hllkIhFE0iFgg33MD1hssW3b3uXqzFVUXrNwothmDMwov5NXaANlTd9h4sp4jtKj7bI2W+rRrlkNfVhgkaRSJmUmU5s0vYwles0+BQETJ6sCtyPgsF28utnEWT3SY0u8L0F0R5Vs93rvaX5aN2jodXLIuy9Jch9I28I6qItb+rG35t9RcucP07ul8FDxrsXiaayJAPcnpI0WXYy/9GbgyJgwdo++lfsbYDqRCRBNbl4cbmwyCLFbMFWIQ5YzQWdqLnnIWgd/CxA6w4gv33Tel9pNycPdtKjVz/lwD3EzS0ccKy9jNhWWIfknfLpzIh2TCYgt0v9r9OHQvgSF8mc+77xl7sv1zrGSAk4yDY+G5RY0w8BkvERNEv72sPTdbWAlr5p0A/JbflodyZShXpY8L+vzorC6rLE+D447K1igGcqfnbDieoQe5OSc40PI9nouAC+M8/t5+XyL3aszCwq7qWvSJlPjrJKUp/tNkNeURO6sAPJkRL+hvvt1/2GEOktxaAzwGCUaLB7WAf2EE/JUmM4Z1AkkycIiCY7IpyTuVKPXwF3NmephTaXym9fsDVht9eSdTm6MLQL7zQnSeQ5JUyKdOHId0chnYHv7G/JYOeC/ObPsL2PCiecAvkfZs8ABaRiU3ZAM8V6GhH1Vq7aTnx4jWouTOXSFnO4EAqVKHZU5uqJumKZUFTDwxDb1EugKeeZ7dOWVJPiBgW2aLMfAt/cYWTVWkU5Vtc0rhzwWlohGHybwcsLxu/KiUF6yBhdb+kAGQRYXqpSdhbqTfZ7xSHyaodd4+vguI4FgxRO+GOP/bt66QAt1B/HYsUZ53iWbIvTOVExwIDOdScqx75CopWgSqLI4YUKE7nQvldbdWZauGYL1K0mdWJcULXhiQarFWr+ibvcs9u0VBmoWMNC3V7dCVfhltEH3Sz5+zBLPv9i1FWGp2P3RsqvEDZNUQtXdT+eJDtpSbjFS+QUSwqWKMzlb5SOFZOdfRrGdQB3JVt+m/Jvk4Byewp6iKGChZPq5mCIpZ8l0PVVS8e6Isk/AzG3avjyhAx5F4YS6mxSiQVfa7bCsPnskkai0II37w4jlgpX4oWiF5FU6NxiG+9MRTrYekvkydndWc7yhEK68465Fn/oel62etgIirb6G0jQMh7l040imFJrkgn2QkY041FDB5MRv9ZGvcDQNUZh8K9sQjqGqMUwbIjb74Ef2H17jLE3hGywbGWG9ckvlTPpkdDNeVMhYFj1NwYzKxQV3yG/Nno7ztJSOFbvJXw7h2G0W42oewoIoC7WY6sCM6P1JZAIi1L3QCuDoQ3IHoecHtbioCDrWS5r6/7DlCIJmbHeHAPkR6dQFPZ02A0MlPrJThWhqe3ke3Df2yJ+4VSdGZu1E4chQcI+UxKG5Vf7nd/lGR1StPrIJRc1bkJADr8LQ+c5/hEBwzvBi6iiRinJ8OBxSGW7lHBajRwQQM1tFAcRFirC4FuxvIBfERKxIHGsjV09QOlhn8csb1UfslTztl4ceqRpl3b4qbQunL3ExyyWo2Kwwatt/WmL86WbXYPqV+q1AbBCQyudIiHZz6gDzY5XsjGLXzhkOlSVDz/LVRAIskrEkLhRpKiVZv/ZwjJIo95maaeyRvcnOpMoxGVJ/ITIDZrrUbyEZGQ1zSrFpgsxfr2ApH1HS4lxmVQ9yCIWeFTovkoj+qMRXL/ObPl/XhWdsQDZbEK5wNLJ8RTWxPpwCjJfRgdW6UdpK0dqYR0CsBZJc4KzNbPWi6E5MyJObVuvahmoQmJDbODwc5UhTHnK6JtrB7KX8XKQv1ZCMV+LnjhdBVwvc8+8VEAaL1q4ClgXTOtophgJNzqqr6/Pavz/HAfQHfFrJPdeADhhBV+5oFM/EDz6O4ZYKQU06wQjtMNjgMcM/axffnP3MslV2HkzOVF0mR2OEKotDeOUGnqBEAdyozkIlgnavkuNbm/Py2Nnn4ANbTgUI2BtumopFRJeryMYjeQ53WWFAEUAphs1WKz1gxR9o1CTucMe+3anWxylg6pITpFpsU7UcXvtko8kLHa9GpPpHWOMxwXAmDhpFMnGc9MH90Tdu0SKux2b24PZxjmP2N9rSJIcEPz0LZVXYIVt9X9bckDn3zM+jb5p56EDL2BCaUcBwjR3ULT7a9Kh1Qzjhj4KRxr6NL8HjL7GC4W1MgiG9zNVTpMSzDF+ng5iFRgiUe7QIbdA0zr0oehk28vc7qh0lIVFh1BYOub/tTgHEhn5uWxp4OrA6Hd7jPwDN7tVl6Zl2Cbl5XUCt5VwY7VoZQ29a2xtXGLs9FxU6llmJpy47t1uoVsueiUcvccXkSYJSjWvufJNGOdfL/R7gU+wOGslrPBVf//nIgzhfEuoC9D3SzOgBx5lxM5qCVvIPV3o0RnJaXwVui7ugs0pVVHcCqXxFNjH+bd/XYUnbC84tNmVxBUIamKYgk+pVuBAyXkMAZiMlFuaOxYW1mXL5ifGTV6FWxT7u4UW0ppJV+qzxWW87+A6W1W4F5xaRANNe75pluSAUVXUuoZhRfnAAM+HEfmSGdMYg0dVzt6lirBau2fCY8VnYPdmxxV4FTqRYqhIRGloZXvWbP2Cua3WSN/74Nfk38qfdUl7YQLxTzWhwTHI9aAKy8aTEgj+HH1x05mxiF1U8nrpgB3iGJ/SmWIwt0PWd8R62KuPzB66AyNWCGstmmYb6fnHdkQqEYNdWY3ovKXtQYbxgst8+E3GLL53d+Ig0AipWfvCFiHndBZ9N/+dMLgPuWWuy7HdQ5RJybUX8zPgxl65KnSRdNQTs3CRVoFhSfkQSHQWyfF5gRVb7E13M9J4jy/l9sXjbLJ2jI/27Mx4YwRf2Z1AFXM86eI224pDbDYFHwv8PDGHwgGDM+l6PZsFxZmFgOGawZ5iyFU1J8y+waz7VKDCJ9UJ8mDgd7dqDsCrPsYEG7WI9TA7XMYy/Yx2WqhTaE1YolQrucEilqqf6hZRV2G8a3QrEDP5fI02gW8cfSkWSyEWUIlfYBdvifAX53FdChsFp/dCduq4OdrBapmnr26/YhhbBPcsQVYCInfoF3DNuekJTnB2nWC2O6LedPZIzHciYSmkXelpBC7mEmCIUfiEZvcmnuUveCYHdetGoKnKjUemT2x6JsZfejfYKzyarVrM2EWfZGNqY5RSz9UyPHFeDwuQTK3gvWl8tzW1THP6Lpg1yGWlHli7ivWKQlPWxbU3+q82UqPexLzCGEHavgbGY+cJX9f6JPUxTk+8cf1+PyfGOBTFgLn11ur32l5NiNCNDP8h5qTpxppoF5RKk0PbkV5zeDGi5pPkMN8KlYwEce1i5X3VU9GYLvQMiQ+Dbvf2GyWZooRL0c+FiGhTFn+bjzxQsq0YHmj2lN/wiAx5G09M4fZd4VaOF5iMF66aMbj3uq7Zi0RlFQ0MOJxqEelufZYbSmurGtU7FjLk9DEbUEV3KwlUQynl7HYQWJugnNKpRFmfZLP+2/jhlMPTVVmDCJjFcu6qqxMy7THDFnbQpfrwIEjtKFRnnvdDtJEjmk19foANmnQt+UF8Je0HRfs1VdYKZFzVip4yh0MANi8Evxaob/q+Wl2Eq5yQjO9gAMVJy8JqX+Nsb5aIyV3UDiuAcmdByffaYe/G/pGf1yW5M4Geqv2848xdqxPru0f0TOEdneqJexRCUPDEPpR5plV90KC7t3L6B8sNnXdhIEIQUu8sQxmmENs+sGGSNFMTfCRdumKHZVsJM2L0dxuIunuJ1cIisp6zixQiW5LLQhCwxck1ZIJj46hv4g5UWGsl3lZ5bytUNVFZNzhHovH063BHNIw8Jq+s3/DbeFt1mcq3nwlOZITawYsK62Gxivkm8TGLzBeXBKd1BmqEQV5QxR/GHk2+nyd50mJVivm0M7RjUuRhs4UaMf8+dAfYf7sCeX4cBvZMHvK7RkYIXYfWaEHc0xB4nvDMCudwvhtZikUqtrZSH8FNX5StOVU3Sok0Q6QvbuXdBxNmyYcEX9NmfBJ9XIrPRLEHEwBq6Bkuio6a/bC0+MlZNmT4sYlWMW9EO8hvOMlBWpQZykvRBrITX1s0TKzGKKZNsPs0mCQ+WP78KZ9OFQ/Dxoo99DH+/Q5iZ0h628LwVr9rbQiZfW+2mcqIGeMdXUZyNzY+sPgdosF8UUBtG2k5OXKdHFxtiAsq99vun2LDFJMBmoR3gtvcz9BaUpvie/3tzg6e1Qo55mZV/LqjEtkduTv3uMlURIxdxtHpRnesfZduQIgIYe8kHMcT0rLgAIpwZ5QpEvI91p7ZghsPUwErnBv85HfstBCU7PAONPmlA/en/tJnGRQ67sNqdmlLFyTWx3PyY6UIvpj43H34N/NwyNgtNAFzFIUDSCNy7NsSb5B3+qS6txAo16bBY7XxYBBiAwdOUophvluSMsyVdEI+Zsf5yCha8irIreLY1+Mq9xGZ5JNsgx+xkPp0oITvddKKDqt1r4S10NrkYhWr0px/NW+QdvPqfs2+XjEPXvfbnAsdNVCuylTMRER9H8vzWlmd79OB4eqSbzchl9Vjxx/VpI3lmxo6LEPN7UWHvBUz/x4EjUuWEQGLmFAO2HaWL8LUHR4QcNLomXSBPquq0g3zfNCPX3PRalCHIuBToCg6ZmOY/jSNa4EcGM57r1ZfSY9AQ+rhUnVg1pTub28AmiNU6724kbzShhgRbJdECtXYn2JEixtMS7A5vTwcrXyC9u8rEwtYCzASmXxYIXpZsqgpiOxWaxX8IzXfRnTXWT1fUw3GVnW5PVrrABVgem7p5ckMCoFMF35w7/BXLK/vnZbou8RVZGj4B66dCTEHJ9R6CKumaTU5fEEzTB/CkeSKmMP88Er2GcAmUOkA/NQZZ1SC77b5IXGGotvV8DXQG5ff9fqXTIJfSfUWJz7IYIyUiNazIUJdPScDmjTHtZcuYT2L6tcG5TC314Sh4GX3VkCq5dPVT8Xrt/g4cD3pnFl1FjTqPyzhBo3C93jrZDgAY87b4LAp72eiyiNJ7Ai9ZbwqGFHtrZR5yUv+x1GOcYFuTQCFIrU9G2rvsxFANNoZJAsH1CeolzJGckXmPoydGUQLCe0GHDUtHWt3UXxeuBZQ1ASgMoo+2YMSTs1U3n/hPLaNJ5M9bbIIeNAm/9wMAgAkDRWMLv1MsDnK2dx0x+lMIwNZXHxEnB9tFi2v5YKz/6EVLrDMiButz57rrlsyAw5IOs4KKbLicdsrMSjLKbPaInTpYwr0YG1QYsWXlCzhDh+i3TsBlHeiov2jd3c6DOm7W2qN09EuDD/VLTY3eZJjgVtmlOpR+gxqmuCCqK2Y7sfruQsrFwJy5WLZOIjZ3a0Y8NaH2gj0ONvHEZGX59Ep/WQMvG2pA8j+OU5fPos0owYu+BndKqoS0V54yxUtQy/2i2lE73AUa+xl7A0dy6nhgiMu+vZhVIpRggAdGlxZWOERGe/sQJFfCee91xLT62uqUNLI+PwRb5VlIgqWS07W25awSHr/pBselhSXqaI7ftmHY2mmaSJ17JvsKTwQCdXeEVEUTlyNRnqwGg8/CZAzaNXETNJqKboB+W/89Xqc7KU02fddutsAKIIAmZv+x0hmjrDcciEZAnDfjW0uzTALhdMFItKjdsniqXKuVVc/7gry+iKT5lIOmwEMOu+8JSoU4xy4FKmUBikRazTC6SqQC6wkfTPbPvVrOfhkJukMafPFQopGZvSdz+JjnCrVfSa6oZfosMFD7qA6JmhUaNLCKwJTo7H/rp96XDCLibKv3rBMExq0Q9qQM9gDlchleeE8cXHHM7iialQ5BEw0e9OUXo0OmJYEd9HktKOqaVtLHRN/yjrprCiHlQHZ73HzdGekHa9CPTWB5az0NDEXiBORh+FWjg6nyjxEi0/JvRxUyd4udTPiD1dzV2plEjEKndX+eKf17EMmKB/yEjMS4PLk1MBl28gWYRbq6fgnI5BPfqPzqaGM2Xj3tiCOXzaG6DQuBaUVEqeppCkwSOibDbFDbSil60qpyAPIrz1f9lAJbQ2CWOa0yiBpQ7uWjvLKJMOcIXK8ScQsqTRnxIBO9zE3+VHj34KEspZeGZPji7rudWriHe3ZB6W28Z5FWLXNiYmJTnRkoRj92eujDRfp7PhzIYhzfTwmG27ctdaYLE1TuKx6DhPEzXT8B/t+BYW+p7yzzZJj0Njt4D8LuYys5yPFBKk5MG19xIrXmJbY0HtLZwAFNqktEM6Cm37mEIR+J9Il3C/XUdIdCZsbnP+RIj5PlNBNPz4kXj/9BQMUWb9al8tFyfu6Hzhttgw0+/J8pfQCT5FtDIn/86HyRZvs4FiGztPNrsAawaWOrdNf/KIOuDC3NBoGrUzrGMyJKY0DS9lM/Y4TpsTnUWNH9vfj7gK+cCkR35D1g+8bg0WamH/qyVeSW/bH2RsISEXzIkqpkmG13MvlK5Ppl8c3nEUyVymecCcoIk8gyQIlHiCoIjPz7RJEIoZRiZzIe1VJpRULlJDfOWeHJaViSSaFuXqEvWdp/5lPz+rRIonJWkZcSJ5iZTi2K8XppDaM5YhXroefGBikSkFXSOgnn7/Aaa6mFACGqqYHlig3DjMkdSB5/bIaadTPaXvnGGMuTUE5+lv/Y8lbxxQ4/eUvTajZWkmC9TlazGV/4iME9HmNnmHWbB50s+EntPbyofrjzJLU3T9ifKnJCyO+GqkXUXbtcM4k++JSd+4ECpxWPTITu26ZbMsJmLFFx/8L596YyO/4muX4fL8mnVPC0blvqCn/swOYVhSDio9OZ0ToiHH4z+cxqahacbCj+vYUYfnOeqlWXOKCtd4ju4kJLAiPZXLJJS5luhwkqTkheUndGJiijjH39msntmuQgPcicXU+vlDyWvlQrVMDjCAWRo6yrG5WbE2PXvE71TtPxgbuHq5Xh/8p7sn3EcRlfaJlY7Po1AIptj0dMKwuh0lapr7uhAr+Q1Hl1pXrzWCLuxz8HXQhHSFR3IZMvrDgOoixRlE3nONsARCjws0AJ10PKJ8qUqFICysBGJiyRyp6hTbG62VFxRNK9fs0xAaZ/1VrRH4E23l12gBURoOvUGd+Rkqt3nTwlo9XMxaTagrfNQb6FbjUq/5rwO7lP+ksz0gTiWk0b70cs/CiTfaiKpwtcT682IPv8RIEcXV1ZNg29AgCx/S1v+0umI3TdJ7gdNX73pvS9W6LJboxqjSs/Os9J2brrI8w4qDX5RsY/ER+lk7lpvraGgs1TckPPlBhwOhy+cGXdA7RkaYUvOQf8CvFrG7btuDvq//wTv+3EiwaQnhLNpLzAHy74SVIQBadhbk+ATcNJXAB6gYZ9PkSCTb+lbMpaFIjHxCFJ8FNEsRNcfC1Q/VZqCDVnrxahfMrrV/AcCvotSOEGdg75GsO9/QVThMyrReMBKX02f39M5wVXMFWqOMWcvwetMN1UYmTxfzgAr2AKrmHIagtUDmW8FzEwaYSfzL3ivxETRG39iHU2wWwmEi9t2FkSnDy5dK+JlVtoc1+5TXEH0jJ5QRA+n+3zBmVAmiJ5XIjEiLOfofEnlgnAAzsxJpyjwGk8Jn8+Fg9cB59zUGDXkaWOuIn93ffQjIVD11xcZZ98xfi/g/Sh/l1/sVhlodTTlc87HWIofViNXVr8TooP5HE82OWjHXITY1TMwCsA2RYL8V6nZgpHrNn6XkPwUhYECV9A7hijy6TOLNM/ckYXNFZu6NOflp3Bqftb24h3rm4UsTY1lMn4Ci0Tcol022gOumZf/oUQQojKzui0BXdfFaav6VkTz7kJF29DpKJhGsPrXRQI8oaQBbdZyFbXhLj6vQ4K1aiTQcOZbL6bHqjn+z4LCEiYj0wdzfAe4OzoU0Vs/4mbbhJGsdKLL7WPNRzkngQdJzjTMekwpttwt/YVMtF36MaIe1twsVXCm4z7xteEbVtPqITCRIK98cT+uF2U3r6DBExKpV3Tcvyar0ygtTwloRVcKT/Dv3oDNsI3zH2rmlJheNiWfDfmQ94qljWT5a/fLhh2XSIImXbialKm1116jAnVwQ+1fhutGjlZ8BLTki2U+KOiNdMUSSOkVbLRkxxPi6cbxRAyWbLBMDe9pSSAmerTPK0g6ncrBj4ayIIEnnbEwuJX4OhS8p0t+Ur6MfmKU8oK7bhCtH8ZdPDQmM5WIMeoWTsFmQ41htcJcnt5eo1YXhearIbBn3fIspeEMBd1o31G04nmGEke/m+I/hg1pRVoNn+qJIQYhNWuiRxTXr8ys8lCzcHMb0pOnAqYVdVXwkbgDaRKer9A+6arB8pbdiixgPUdDIIIIRmAT9H+M9E++sq5cdVZaqk4623rR7ECtLldqmdrGXn+zHx63NJkTi9tuuV6gpsi53MyoCDoV+CyaGLWRtv19x7+VWbo3q+cAeDRwq2cP33TVkUC2eE+YrYZ8PZmHDq6+PQrCyIZaRQOMlZ5IHFM6ZG5c/5+Kz8MJpv6F6XAJv8FGbOE9QvrSqCtiws8kxfnJo0WL5F9uvM7m7nA1rrTxUSY9j+G+JXEwVXh0JetAcsbTt2SZQi+I0EhIhjkMmn+jSx1Tvx4XGEs53ALvP1SWUTjzp8GfMppdYzrdZuMD7vvKkvc5pKg6d6QXUCJqcCL7eJwCNsfgzS4n3k0c918vrLWbnv5KItAESP4vI8oDPBWw7kHfznSXX0uHPHRoSgnrnSv9FrHYnDDY+RbbPAN3a0ieMlGMqDns0eE8VHpsy3dDZ2Smo857RP4MKxEjOXvM6EeC+gbsEkC6WTZVvjsVC2hysNNuRsWlm+MUVxVoYZB6xuRZ5F7GI6Xha2Jn/hZFXfR+CxqPkjM44popb9Ihc0J34RyYdbOPMwz9Mxm5ySxjRi9ylS/jJZCiZphFzfOy0LNgxaEsgEx1EB13lRd2vTWemv5JYKIMyQb/Xr28qmmPjQX7fH26XsBflSmsXB3oJL8lbTqUiuLb9n8uwpO2iNX0HdQdEa93ZROc+MDr9UrjUM9myg8lOAgvNpUSiU9pRMujI/3+qshSEjXvQYny2zTSx1KSM42GNd9fHuw6BX//1M1elRczyqaGyNOyvuBBDDtZSzMZ3mNDZq6GyuuhzPoQltooGz+7mREx2eKUdLgT+l322O3hLsWr4GLhlglZ/MO5tFLJ1l8PEcUjCM73Qyp3xHgVDof0mW2YK6+WqVkzWEkODjUTwdgXU9WMCri02G4SI0LVL4aiQER4vE4x2JYVtaspINsyK+bEWFZzJCpxu26yqtB9mlZXSnhP1AlFKiI9/es5eVEB5cexpaYm02GYbzODmn9nTBn+2htAeIsLXU/YIRJ27JzhcdbSs9Iiyc0carCOdOOnfrDXn9s7wety/9rjVsJRQ/OlfbwhjKRGg0ScK10g4fXyZi6xooFER7MR/tHv1IAPZVRD4X27ZJFZ4DkpecgIirbpPWhzhGEqkHm/nc+dnsfkF2qyoSUf9huR+eC5F3anULrbcq+XzEO2jhN8mF4QCpxweKe7UanFvJG0i4xxERuWQhJU+91ofjn1qD18zCD5xGKSfnUa1xzNK3exHAd5lqFQ6SQaeSeI+BBb6pWQVcgAShq5friIf3jBN4ED+Wyo4kllfb5SCUuoIqS1O0oHg5MpKSWO+CLOtKdlaUh0xFm8djsPbxvP0p5AeVotA7ORiGQr7LKoC4dGGinp0u9vQk095XdUZunirT7cGUlzCP2+Sug+dgZjzy1RDU1u6ipBk3gEtoUtUfzMRIMosdMEjy3nOu37geMnZFoeH+jJPHhsACosojmZwFLXOpFQQgtUxQrPcvj0Jd/czxCN1/InSwskcrUc2wJ5R4hBLv9+cFGHdRTzUOnytY1aWI7xJbKSFV34DFaE+s3AmkENDEJVOc8HUwu9btsWhUU2wpQyjIlBVol4veJjIQzet+A6gFt3dC9t3jwLluhA8GjqJ9cr7CYYHgZeLrEV4K+DFRthr/O2IsF1UjtfeCTZhQXn1O8nUV5woSy0GjCg5wMe+uywXqT3b9+svZdVa9CWqec2E5WOX/S1QUHjgF5LrzOCiq1/Okh/ISJhTsicWtYNgRbIJjwSWCzvP76SdkDLF2L3lG6o7aYgNgO1SQRgypYd4iqALQIQaGLFIQNCSZFZoRiP3H4X11zrdZfewLtXkCTxBgfoxTO9ghDFav5q7fE8sTuUhPzb275C4697xBZOAylBuwiCGhWkXEZBYJ8vBH1gAl/2FuqI6hGu5a/DH6eQAmCIWTAUisVd25TX8vzwQfJc18Q8uHCP8xNKq6Fg9rSkAtbv1oIqViR92/PPAWDkxtUkJZl5UQheGghasGARn7fHzLVem9v+XHW0+DKQENGHPFM4ORgwKYfdtxSLsFGfKxgbnbsH/+omKnmWTHxrpUEfKm37F/Oq4zOqSE1nNTOriXyCPuCqxEIDHKBR2kzxWxaFKkML2qdZNwoH5Soff2NwEVQj4Q587rT3EGj17WUmD9lc8mSicKKefBl1ojUUbTEsQAzF5SPBjKGVNUhRmgAIxB6JVTiOSPhDZ7bg87jWSqSSLnMqbXWg3sjONKPKoOysEsGZ4SHHkZUfMYQ3YNIuVX+AiXHnlbHlE2o6KO/QXsmXR8iIhThdTevFqnYoByrTBqLxh2sdTiQeLXDrrOXywWvRBpIyS0lTsemzavgWKkiuTfLoTmfdUYZVEO+ik5TG+WHf76inDTDiWu+kvxTGDhchUZR2OKI3TxkwG1F2Wd+Z/I+6lJbVxBEnE+sl6WmnpxP32ChMzNUzYkYWZjzLR9Pg0Iybs2e6P4BOgNEXCI1aOa+zG6Xwc8pN2TFZD3XXuOlQzGrg2go6U7ZyWjtbgPPkIqLUhfMfljq/TQDNouZ94rLdgOYdIj98ZbLOWPG6lz2LEU/MWKgvEFdiPf1n9l6e/1q/y9/d+mHSPQ8sfePO36eyqWqWcTJvA47BAHH+rgmMfuzrKTbv4a8tJ5ezolRVTeuZMhuSZIiG9eOcE+fNjuCXMAvRtoQV9TyNtdA4ci98IZnrpj6hWimJQTWediuNPsB4ZRJdi7Ee11Gao2L/fWJiz9RWbcP7F804h1LuQj37Hyi8+jJgmLSJl/hGOXXhfl/9a14wbWRcQdFWqrE+yzjTc5XwLaRE70ZEUDX96+nAOIi79WzU8H56VPjctUDYRQrwIcTS5sCBCVAYLnc1W/dQQ46TpuYu17RjoL+DwCh/4jcO8c+6492H4zCV1obzvzW812avMvuuNZ+TVBY5cFaEEG/zwc1n5JLbriUHfucKmO/hWCheJTGcWCbSY52Eucb6rXEQlhf8p3VnFRHKJ3HQEQ9SS4ZcFReXU6EfuaQceW9IMOBsV0JIrQZlRcoicbo9cjPbxJRI8npZ0syxc1F/HmZQBIRRTdXxct6+SSTeN3ToHNUt5q5cAw13YsL8x6mK16yHWX184A1UX470nELuvvchtBbwowH2xufGlI02t02h/+qsNQtHoX+9HpNzAo8uxsl4B8uMDCx68nff7T0aWTa6wSxJvJm2blfK7YIwjAgilUwilummZsdTNVS77tU9bRL9Jts5RBem/YFG6YNd6rL12Rqqk8MpKOgTbk+W/k0XD0kxMdRN0vEIGtizXGl71nx1n7CrteENm0ItiYU/Q9WJ6NkCUwCW4ph7Xp9ZApaOhMfZigI1PmkFljUwmM6K8sBKgR39wa7YFZ0pT6AFnP4npT5m+y9Tn2qvxq9QIAhlQ99+skMfqn+PdMmCGL9wuNDuptInK0o0ndo6MyEFHIcP0tQSkeFDzJvAgWJL6+WL1YTS7XkKbhiPZrol3zV9sf3wOJkkijalNCX7uMw7V9eZQZCgsiKDXPV0u+oqCWlnBs5kHrz2jcCSIBVZKYDBL0f6UQy//I6XDtt5ADLXueCjFhMQGbicTnt3HM8ys6Gm1/YUrk73thWboEdl+XZOzjHYWylwvAoTu/KZGURQxUCbhEG05k/19valoMDqDktqqGvIzTQUdoQgeuZkuIRmRUM2zxoKjGxJHetAPTm4u1jMicQsxxGMppiZI3fDO+KtbnhqgAxnnzk+nUgCEqC9f6fnC2/o8IfUpAhUaHAg78coFDsgOKi1VWZMmg21MVpLbKwyrlcZfPsTqXOfhlXZYmpygKV9zYvXNdThVrGuF3+8bllb7kNONEV+G07pAF8P8EBmo64+JnGhDZUy4vXkHJ0YqO8xfN/r1LdcR37XgjFxsfd1GupQBQWccZrC/6CJX2djvEI4M5wsuvwP9s0dGG2cfNFzdKdD0iQf2jQ3RD1R383Dq2HlPbemABPMep7TKTk1G5S6fcORRvq9aJThfJVVqRsTuSDgYenk3kkyZoiBRKULYo5n143WVuNCU6dFbXyOJyW6XtETkJjJNWsLLt1wpiajqS8zyWhGXEvXglyNOYzGAezQIzj4H6UfVugJfE44VLpd9aPmYGpDPD+CNrT5BNm6JYDLx8EE6Ls6iSW/nwi27r90deW+vrBgz3rGHycb4BF2nFrV5Fa5TA6603gX89mlptyMFGn1pv4sVTsnAdgWeLfWC4d8newdAf1HGRGEsLfA7z0KEJ7jwKhhk7P4yWgCYfICw1TIsAmwohM4Z5Onf7cwdcqny0VRqoD82bvBtQCQfJBOwGPdiMOH97mqD6Kd1jFVrpuOf7h+YMlTwvDVbRm/sVKIAcE+NXyj0c/Mw9Pk8Jlg43pPa+U6z2T/GtydDpWfmmdK/FdQijajR4tBcSyviD2z8v7bvXc2NCttXU5T0XvzokUHyY8EbLcfgQWFy3moyIC6Rz2YDa9MsluZ4s84iLJYen1qt0yVkIQR+RNNAOK5AU44/l2osxTstpU3f/Ba1yqN6hVJPbbwlwzTJbXO2sar8WugjR6f+bbJlcoiTjyv+JMiRhD7cAWdvLlmxP0WMH1tVsNE5mBWnD65sOie9zpThOYBenivLXhImLYcNF9H6s/ff7Q/juvQk03P+prlogCMdMZ2lo5Xq/EyXVoOklYWcjoLCNi0SjQYIyxsYcNI580is+Lx2JvxViKhgmQh7tmRtB3wjShdyrPEPkzOyDnWhS4jF4clJtE8ZpteFyNaCgykUnSz2iVDd/lvxhyFdZbqRO0WPmXzJZ6sNoGhIZ/DCz9+Ym2P0z7DOPvAKy3/Yq7FrWkXqwblfqOAvSbs/hvGANGupsl+Vu6plIqplf0WVNod3xcykF2DXh4JRQ5aUwVrC+Oycwcb0ton+cIJiL/9+5uUlALQqQ3gsv/ZfoxSRUsQiOpiC1C1llv5eXSwqrX8L/yPtrjdR00Jvx/s5meht5ygNqtdR0irZnPRAkMRt7oN7XdOgxIOJpFFb75R8njMlnj8eVVx4R6sfu8rfnvwC2Uxe/PPHzwdn+2NVlwSV31gSB4IWfAn/lb1RXXf6HQuIISgwOR35BCIiqv3mhvlGolrmV3qfabnLDQCdR+60O7bq9bpl6930bA9CpOen7+Yax7kv0FQQWr9XT8vCfMnJCd84eHSb47CuTiJAjMNWeXSTlG+AMjoUIJYBcmx4wLRnu6zJ/jJKMavp2ZHBSOSq6F5bEO/D0ZEhMFlAwFgu8AgVSoA9f37PJ49PezpYOoi+sbVP1MZ8d9yKPtSconiASiEfgqC+L7lFBDwP+P4DCpmJUMBp+RCdb+uSzLeFxA5esiw5CehbaOZ2zufaAbIcvBDQcZ3HdZQPIPtVV7RPOKwv9ATZRokjtbiCkys9fjSXI10W0cYsPPo+a2UDzQZgRUMKI1WzNaN7ZvHFTghksJli4U+wYBXaDfzpSaLJUeBf96M7Rjy2qm/n0lp16vEWTjhaxs6yI/a1BAwkoxdXTYo8DDJeAp/fH5kvlEbRaxDayhcc35pMXlxhXbTUDDPF2l+BZxB9wyXv4CtLD/y4luk7cKB4hPaqUuMYqwJBitvuwZZJzAQCyLTZ2Gk5a4+f2E6T8y/ueqVBcjxwZMJxOMm8gJfdrgVDTycmys4dfoS9FBWR3OAss4WV53oSNKPsp5lZnDh8E3+31Z5JADtgGROkK5rG4CXe1RfMJts3nFSYyNdpqvUVfVeyTEQftQuorXp5p/NzqazsnH62UDHhxELCaNsoxZVJcUIrI4layFHqA/T54kmHpkOrGWP8/T7fp9iM4k3Buo4jfRwVGp+lU7NTRpLmuRZU3dqUm0/Uw4y/d+tdw2tkWtXEzJrt12hLUX2B2QY1Q0Ve8tzUbb+643//78KwofT07oA7lBjC+7Q8ggtOZvvWNQfT/DMLbzXlgayf+Y5myr5hzkQtloZcfgwXVkDD1lm95rXgPbBy7UYRsh3oCy8WIT1pi0Oc9LJXdcrfqeDJofkUSzdMeCpg0rYfGhNI7kbTVRB6LB9N6Bq7GSejwvmC9+yvG5Kb8e0IOFb5ZXz3rfFs3vhzBFJfQ6esW7tKq7DwIkjo5uJGC2TEfDzo3j1oaIB/lvxSK9s8h8WgtC3Oho5hIr7SBZ+fm01G7GFw+Hzn0TlWpZEocY5vqNs6WA30M+VmFu9+FZGFucLEF9aFGNCvDrXltSTDBGOLnx+tykkkuUpiH1hlT9Ep9F//AvyRHv1uLQlXygpcy53zs/F3qps1iuwqikDE186qENfFpw72v9yhy4a4jMKmNSpNi0Pj1MoHx7PfcLavJ6mfWuWamTYYhI2ZFLH57Zbqsn1PvOneoJpka6UU/1wqKzi7itNpWjh9VAwyvHCvrNeGTX5hNI+oqqYdHfqDuvV0hAEsqWMUjouAHSOFuFNBbvzNmDoojjVpynPaOOEUBi5Um5QzHEBphKO6q+Q27LeyceID76XnVekOAoKu5ZNuWkM9mkdt9WzhjjXobzVB5B4YzInJoOGOGTQn73TmE0WT4pSkPwzvUFMSH51M6+o1f0Mhu0dU6aAJjNwAZfVizyrJplpxNFfxV4UOMT1x4RzNneYj3llG2BEn3As0kKug/YNw4DvvO/MkYyGIQJrkEsoNLNiVq7H0/nua/EqrmcAJpE9UGUK28yfC6i2Cz9fMeEpUlZYYwgOHJ4U8WkFmvwS7sog5TCapcC6KwzHBQiHN//xlZnJHKzp/G5jrZ1NL0YDc9NG1jJGIwznjb0pM8dXH/jHWF+vxIz9WNZExLYspSbZ8XTKEsbPStw8RESjK5QEJ6I+h+XxCSbnk9DiIlIRID3h/HKt0Rr47F7ApCPYscaVzjlpLhAnD+dNcYgPlldW29S1kyoGtunrU3i0y9fS+vwl43+4KHMDkiqrfP//ss/RiTg5DKZEVVmvDeN9VABxS9vZnwwMpDynXe/yFdih0vHJDf2HNWpIkSfk6YYwr0lO9rZDOA24DK/FSpWEG24u2Ps+4o3AjoC6uXwVXEv6aIppuJPBHLbcnUja9+00U/uEPkRFLeK1DfuQScQV0o7B7bMbnLdZxF+B5ovVTAfo7QDqd58hv+tIAM5XXxHAtw5WmIxxk9YFngfjcMjEoU20bCuYlxwjMm8S0c+8Fx+T6szIFUVEIhIPImiyQedgG6pEN446VUi+nxGNTEcK8IZNA7OTvDdTf0VqH461xbeTKz1o0RPddVWi29CNIpV0J01f+pUBYDDvUH9+zmPU8j9xVbfCzXFSYM1hZ+FtArTlpWipTaMYBNA977grLmTQS/Ks8nuaolexuXIbcZgc1Y4FiiojB31Npq/dsF9TRomVzPCy9iPbKnCTCmapW5TtEh3Gwe10JoQ//++VKb87yrDPuNrhq3v33ZSiBL4lictqX1VSpJ25LVkw5rOv4ACPKQhNJGjEjHTp5w+mQCHJ7QRGS3/BO15ZLz0/kIMfsue3XhCg5JkkA/dtdCbVIWy48l0X5pjgvm5gAU9/6Hk+3ojrL+2hRmRvP590qVRoVDljVVxDGvoU4X8Vd+b86hguJXjvwk3GDr3ZAQqXqdaEiyCcoToHQ+Q37zDGWs5CUELJ4gt+dLS1bDGl62PEAfn87jJ10XkZ/1A5wPsdQDL+gIfmug7ziUJxkGmjKHI9LW045ILzseB4g/SI9j/zH7nv71d0FMFL5374FHock3pwlS8Fyw5WH7hdYavGbDsYiEuMQXooGD1NImJtnJbFeDX3SWbvKCN+eXl6ll0v9HuhZSJGbd25gVZgYzG2vE/uyG/bmJUL9fpvtlFBIhv4XWiubvMSkWX0J0vQN0XzB+NkRWpCrmOaqhn05JXy/UEiz5KAAosrNb/zzYI+18W0CEmTTk1wLTMi0zeoCsmhRL/Jr7MteVaqd5ZUPWqCa/bL9nBuzFBrn/TUmWeJAw9YaUPPU05qCYByQnD6W4ZcguXWpzodPMTOjEEsfFHqZf1f0KOHgg14J3EYvgn3d/q0Cl7L5012bM5g/pcwa9EWFgqrdJe6tYhyQfzEZrW13osDj4jWKUbTBPB/Su/lrZOtQX0nGZ+2tWHJOJd+Y8hkdawCGSk1KgqKbF8PFB2+Vjw3eOQoqJXQgy6Bm1KGXxa1+CSQyo09PUw7N/BSLV+fz7bL1j8NEZak8K4CpweebzlDNreJt8OOCxnfPCLHuG/vC9nMXDEsjkflrczoAgh8nYj5ro1f4EgkWOkywhQoBaua2rVUVf4cfUR96MLO4j/z/MW6g3m7Wv+h5OextIdLPLya+VJLGmzIqHDcgDlyQV18cLZ+umwgH8BLv+nRGPdeANUIXSZJMjUoHNzWsiTe00tPBXHwobghFWvwnAJNSlbAlYxUrUBKKJTPcZzRpFp9j8U9c3fUkhC8NeIow/9XDDrWJBkE/rDJfE+56JO9WKbu8VoP2pUBRqhe1yOCQFvLa8dg5FRcG7uB1gNmQoB16zpXv91CPKIOt6/ff9Rja+5grYrDFDBrGEXZhWYvT6dbnxuGP3F11HmyguCYDjo+EAllrXX46wpmw80xS/jHT6FxLU3+nvwHG39agKN6obmVMmxOOwooguzoxF+2aSd2+waYxFaNRIVO/JIKUcl3T/UhC5cA4eVgdujqk95zWjgDVEPtNaNUNG3N5tE3bQeQ5wkmbYuBtqJWjnjA3/D0TceecYdbDfN+aphofWIXVCpyx1twxYy7O0+5UJnNjR1FV65yq+dydXSUU1sbaf6euR3aiI2amIFWKMpcpWpyFlihDxi6yJyS8I8776D48G7685XbskNgdKH5hPApa0rNxV+4jSaUhlp7wh2jEILVcMcNGzz8TZqxz1t9NtFsPQnfMADlxPBxLHTlyItjYO3sRxbWqzABIewFh52ExWF6f6iavqxrsAzD+aWlmRLwcrGcFpYzkirKQvit6Q+2Pm/z7fPFeA2lsem9sqqAEwFV5t34xufdOcMKyof2XGYjoBzfOIyaSQ0JlXm9sTEQT/HYnavqHDMGTSaw0j2iAZE6IsqJwaulnyKPLuMfSWrFw/V5HWWXTy9Re5LZrsQBWoEOSzhdiQJi3GkFyDTrDNvons9ep5oyOWlQvA5jALeCS6NmUfJPyWH1SIYrfRH/eR77UqaHBjhk3yUxw86R3s9VyoveaWenbRmxk0PTZoCVbOfrvUH/re+wSua12RkLidmupTnhDxTioa6vmm6+aemxrg2R9teCpgW9zdur+6b6Yret/Qh5zCzRTKa1Gf5EYeFeGzRlesH2c2QvXXlFSlm866QyYn6Il0VL6Q7s6WW3ZsD4KWvRp/2/NuukpvwoAYnSVybIqm2y5HyW/MwYwHRP6nZHv2vPjKiCDwdQ9CjdZXK/12+06n4+M46elLn7cvIvwcnNB2n/cLHJ5OpbOxzp757OdPeNG1kXa2bzkRbBbfjRt6nw+frVxgrGJY86ZauYrfYeuwQfNBVEyL27UA1JgZkl1jtPxxgaT8lKw6Qrzwgf7I3L6fNT8TW/MAjsZC2Q0/eWXIK9ErfyGeZIrQxZVG8a74tR8PPBRf30nSlYRq71AEmxwd8F89ye/gbO6e0e3IWe98RISGpCMW2rfVVjlalaSwHqH0EVSyzn4OoqcKryeKLmbPJa5ZZzGgnAzc0YdEwJW1o+i/vl42cvSbkyugiOpzPa5kbU0kftQmRkKZxJiJhG2Q3cODq+Rg5GctzX7DHAApcUax1KRwd0feAKSrNJ8Ct5HU+Hjb1vPqZ5YGdC19XWacyNg6MA6Sc2c8/5l0ZanOXnniXHzg3+b4WQJ1d8iFYT/AaPCApIXdPb1upLHK5dqp4aCHncyZfwjAEHh1idUIBnmkmyhZdWG3BiHGPDdwgOhxu8PA5ren23gjcH+ZHMVoVBWb37BvApiyCQYi/N8x/dxVQta//ueM6N9g9QJw98qizNOdi0Qy7r9KBjlVEAMumJ1tSGYyBIn07uTIYm/yAgcmW7Grq1w8rr5FmFieyDwYwK4H72xuwDzZ95iTJGaOk7W0/0u+HmRL7bWMqcFmI/AoqnnujR9h/bCUt48/sBk9uisjLDIcdDOcw5xqGiSnDMrXFhfBJ3yVu8+Zg5lIo4Eiglqx3vtmiPOaboGxIxNG+q04767t3UmzsE1N6pq1Lne5IvXQIT8YciJaQWLjqSLUFGi0yBKcm1Vy9w4Koy307vfa0sWO368gqw/snJcj0uYyZgEF7LTBnFY2n5jGSW/WXidyqfeLW6h655kqbf8uh5E3GN8zuRKytyZrZq5hXew4qJhu8nAGuz49wo4USyNqhNTB6T/W0NC+yxFnM6U6qKghO47a9BUPRnCDsaGZGqi7a/H6Jfu0+JxUeVjwTqEcSjjVYFUbafpYeYhYPxBy4ywx1YFYCYPMNymZ8GB7fHGZ5Y3Y/1pzt/I9gu7ioMmZAIJHDHWKLo0L4Iw7VcA5Gf8RhPGx+d6BMQU3DDj+oUlaoq6FfJKNY8hbASAzRdx3MjOwri+kGOknwhzhHwVwKBw0aIUlk884hp3+Iic11QlCLa+uniAwmPHgLrDaIYwjnmuzJnn092jr8/Yt4kh4OU2oF858BVzJypZc7zg8PLjR6/mG6i5bHJ80ISQG7NZZBtkrrNjaKdoSt2znHV5jo/D9vRJc7/yhYAq2NiBuUzSBV8qaKqFamxllEFpcUMqgAGO/yUkFS3Wmxw4ISrt2s3QCcnZ8MgexNgowcP4CTTrI0KFXLEbougvuWiAzu8VCZpc7M5cFY2dkpPqorZJrvIyeVkXSgtngxzkKB7WjdRh8c68vOrI7bGpCIt2bO0i1JQak5ybMPxfhGLU8GcQEo4IOvRggmAr3N48Y2nTMRerEk6LXwZ6rNCXdcQF7+Q6T3F2eHBaSz9NCUS7jx+RM+5WONSRBfaiykoKeKAVlcSuPNGm3qh2qddDPSjYqqOoMUbD3cTZX8Vcneet+9wh9IaPH0iJuAf4mhZyLbqN5saFYLM5EQQe9t6438KQub+vA0CU0J0MQakBqDvciuNjW4Z5nDIamEyyunI9xJdh61z8HwBcHZm7n0JS6bnaCj/9Vw0tuHbk9HzEzsWNtHRstfKDwORUsiPlvKVXUkrs1mTdJlVLRlCmN3mPTPZJj9Iro7fokQwHB5qwjRQbiYn6kt3/qAhCTv6WLkcjywFi3c09RXYIxocw0CucuyD9NLI2DcyGOyq+0CJ8T8nS/thqHxE5C9C9KkfIBpVUnBcGgY0USfvTAYxPmk2Azbv37tTYgcr9quEp/kc/CU/jvPXjBA+mSGjd1CAD50OMNEJPCz8Cy1xB7aOBf/DZy9szr+VTlHH84/VN99k5lwHWnG+7nISrd0AJ73xI+nYKF+Fn7MAn7X1/5LLyYuCvpOfPyS+0hncT94hKjjf123LjfgWW1hxNNNvClTR+ntnnazU45iCheWZGlsKGSgFMevqetNUYpWMR0ZLxjFSHQgjrOVeHcBytMjmHJHakJQXD92FjW+luU1xCTBvw8gArQmV7cw1OlecbnLW92KV/F92PxBw1ROJBTu3Dmg0Wy2MKAOViyDd0SjhCHUwT+yAxsoAbCwlveUhlrQkYCSBGp7ZtPO4m/QI96x5V6BOA0vJeFd4ceKI4e6k6URZClAPOCfWDDuS88VM0V8Fw2n1eAweNoGnZGUr0HbHEcuwlMX9k9Yz6YUXArvNeN8PFTKv2XizbcGfqx+AjtOoj+pwhOKCeyRIa3R8zVzLDsl8KvxmN4twiqtbpHtLRCePItpyQ4Hv0+HSoiVDzrXEo9iyVmq9hzxM9XbeVZ9PffgZu89P7uIRXb13+IX0XVBbGFNKZoIx9oRACPXJVyFr7NjIi44TtUm7X7IGf6gk4mDTB4VE5ibCXk00nUcbTF4yMhPWbMj9SDkRon2Sc213srA/C4jk0Z7qWsezqur30M5DKPapb3NvCY3hD2ky+5rdRStkYcFx1Hmk8O0JKNW67q9RDkSa0UUZGteR+qQUQWJnX0WCFzT6XgzeCpWokRutdmwUQxJyfo9y/U/iDWTDZvIXcJPx7mDm/L627wA2mB6RtoDDYZf40nhjZ0A9hfb0wd4EWijvvAsEnlZvkDDnQdm3obY5KxSfda+IAoEqV5oDAVgTThkaPJkpUjUyoSrHt9DrPl1ikL+LB13cVFXWaPBQjLiNWRA7J024eL/faA6Iuk0xP6EazvalQQpMG+2FY/LyHL+oqoANpQRMzabOBsh5D9GdWce0FHweWspIojR1IzKv97w0pUxe07eAA/5sZeJKoxJz+X4/ubsUNkT5mvCJhlt0NKpxxjDJF9X7fCMT77tdCiaqLKyfmBgDOsu73hmZ5YjIVBxMGMWzTApquKT4A2kB6WVELWRjXgUNh1WOHjkj1nCDI4SC2wMAuxamtI0/JY8BI308kSKYrIzMNwM3XCo8NxPkFHQhTNCDYTC/P7NQ9n1R064CMShg9LplAwEY3t3Mpvp/pOfwmX2WAs1H3nz71mpsHR35YzWGoVIa6iCiuXQ11OKXcqpjnTlxJxjqG+K2319N7pp850duaUDx8qdUIVQoVX4cwvzpKU7/bzOmRXpooj3z9LGRkCVl0Wvu4qGqaHrcPMiOTLe18f9CgAWiJMmc4kzpjmc731PIqu8YBf1+4Io+h+hScK82CHTv8YwRSRWTAda+J7ftvpW+2hdMQT0LnwoFaPWwYLNr3wSOsIoJe4JWrKdAlaQdwFSxlOAo/0EstL6jZPwK2gSSk5+FB3FmlK4ryY2nVcnA4ilrA8M0ja/8uaR7QlEbsE9d+Y0I+ZrruqUYH7uH51mqss0ZbBQFb0oWrVVeekzKBMWizAyXibpMbQL2KM3vajCnKXSEz6MFGMJeNRv3eEEVjkhGkUL3LD+iqZ3KAin978nSa5joLSI9+6nNeqxcMPTa8sgZXPTIoFmh1Y9yiswWA+eJYE5cJNMchYLtTPdMDprobVxpVrdbAr1l5xsbr8JQ8v63pCifJ41AAiFJIKr0eGtD+ZzX0w6LL4bjRDYRdQkq0dFCEFZr4TSshPel84oBqAPlscJCz22oujZhDoBJW/VfgbwtRCQ+49lnrFiHv0upZgSkflTPe4ahR2bJzKMrmUiRcmQq7CSE5sskw/ZgfM2tkCxLWofC+Xqh8odKtoz/Bw9zzJluCxVsRYEAoHdT+3MKIl7vrloX3QRQDqixdcyofvGim6Pqf6Ovw67vE5Zay5FDrymfGXy3Puvh0tQ8nt8zGRRH5yi6fYPXy9GZZoye1srzS0MQ5zv3ApYvarYICcWXdnkKPf6+i0B7LctBntyvgllqOG+y1xustZ7iRg1jn6rde5tMgqG7OwuYycQGZnzvLJ7/WBQ2NabziAEJ2CW72qErcxAhjENK18NgGBD3fUbw7/dJVMtpcmAL9VmafWPPsJ3FD6zjlY0zJCNei8DNrl40BAAiAuovnk/OrwLhngfbNX6Ob7J+/Oscc/+X21iPrQccdcCIUh4R5AvuQ/25Q6HC5E6h4yodrRG0k983doyyts/0p/eMcdoBj1cfKiXmvwWginSOvEVxXFDTUyq7iwIlYDz/ehBB2h09joNftB4vTQjV59X3OkpOfuifHXgGp1HqPdt8GXd3fO7xbNYghrKMFuoHquEbiydU3KIS+6vfv2JhivANtf2OkQK0LHRYSDcMvP1PwxqiCizwn6D5X9VyrHOHPHQA/tSJ8DTK3XDht3ZLZ885iyuXKtO19Wnw0F6hb5KTlrisKuJMaWSScOy02U9BnE2xmQGER9/o7Pl4MOyN2q90O9lrzyK+JxU2TRpfCoZEbMTLqCGQI5wapcjbkaRZoeKw6F8RnOVIwaOk5A9tm9r9nC5KXaZfirkLHk/7SLf+FTsXKLVVvseoEUgmWFpWPId6ShZJZgm4nm08P/KchJsfefC22rnVjXklIiWsuAqyPfSPokB4Arhtrn130hOjB66uVs071kaUTH0MQwhW5EVDwFl66YeNwKpUJtqb47oHQiBNnRVqcDWfCTBA2blfnWOc6+eQNdwAIvd/zyq5i9uyDimgRq8LvQOzOVtE169mjjVzD4lCYB9cGnSEq1dlJK6+6v7skZV2Co6o/zNz1xlWl71fu7+JG5P8ePpx3eTTSjX/Rd3qwxcdnuszqLnyoX36CKY3a8B0inCtNXMH+b5/d4g6C9x2tnUdOXoHqNKnOCFdwBkVbZbpgMk0eKujb+YFjmZiRhpsaH/iOZK52us2CHodU8u7dwyaiB4IWCZbCDgKmJfu2denBpbTvlcxtbcFsZoXW3RJ/GtPsWSQZkkWoqmrotJB1TdGEqMUuESQR3idFS8r1Cpy0R2XBlVLA49F5XZqxFFAMjFRXB/ROyR8SvbMqCZ4tCdzJLJH4efkidaacfL5jzACiD5vwwTtW53lRNQQ67yt2CDCPTlgA5AN1oWW6pDWtvxAQ7FnOxxbdDb2dT1tgT66DQHcWC5Z8AFbkpRvjNChwMYI8Vq46heRIE3LIhff0wZb/d5+NQko7hdKRQiwfQXUOj4P0RTKfAj9w7iqudYEvJqbkkRU9vlE2toTq3x6EkfKTN/MwD8KH9EnwAE8zhyh1J+n3mSGyv+Ac1p1UIUwpyUChqlPyQwk532kmuNXQqL/CZPk/bWTW0qjbfXh6SXinyrSHMl97Lg+44KZLA3S/qmpjB16gUtkibuHj+SIbkLqSIdub3UA39YFOHxR8aMWqf3cu+7Yqu3cSXaoRAwQ1yOoN8sXvWQEb6/dOB9W35a3wy/riERIZVSy3IH5EQPFb5LWOcV9xk3rmnuOHFlMmNdgsYrPNMcE/aJGKYHvgumekT+dySs1a47Q3twtmTOZYEfmOBeYVLzmiK7kKFSUqJE6Q+N3H+P/eraMcEuNurf5SCWssIeDxkdn0CvfsilUfuvmfHg9mChOqwkiKzJzrBfr3KBwZqSQjHpvP69Ty+RstwStFcU9ty6/IIGWYMwYbU5zONSJEgPYL7J70y/BDZpWa/JWXXCMxo2gKUHwt6TnCKvZ388y1CvwvpBCawt2Gm9dgC9OIEVr4j23Fqh299VHUuc2HkH9gxBf0y1sK9wsQq3r2aV3mp+ey/g+EGVV1/q5zKObezogbmwzrt79bcQzE9uC5wbo40OpaB+4XcDvvO8HRwOiOJk0wU9YcuxynigvS5qiKCZc8CCnhjQ7CPO77UpN8wqdAq9f57PCYVh/M0+ojcsIV/PFtNVhY9LKyJi3vNA39J6YWBVPmWwdoUlDQcoH2bgo4I=">
-</div>
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
 
-<script type="text/javascript">
-//<![CDATA[
-var theForm = document.forms['form1'];
-if (!theForm) {
-    theForm = document.form1;
-}
-function __doPostBack(eventTarget, eventArgument) {
-    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
-        theForm.__EVENTTARGET.value = eventTarget;
-        theForm.__EVENTARGUMENT.value = eventArgument;
-        theForm.submit();
-    }
-}
-//]]>
-</script>
-
-
-<script src="./奖惩公示_files/WebResource.axd" type="text/javascript"></script>
-
-
-<script src="./奖惩公示_files/jquery-1.11.1.min.js" type="text/javascript"></script>
-<script src="./奖惩公示_files/jquery-ui.min.js" type="text/javascript"></script>
-<script>$(function() {$(".PerfectButton, .PagerGrid a").button(); $(".PagerGrid td>span").wrap("<div class='blueButton'></div>"); $(".PagerGrid td .blueButton span").button(); });</script>
-<script src="./奖惩公示_files/ScriptResource.axd" type="text/javascript"></script>
-<script type="text/javascript">
-//<![CDATA[
-if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax 客户端框架未能加载。');
-//]]>
-</script>
-
-<script src="./奖惩公示_files/ScriptResource(1).axd" type="text/javascript"></script>
-<div>
-
-	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="81F6F9C6">
-	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="">
-	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="9OjW2o7HfocFlLuxTeu4HN+iTzcrvuqE5uq8wKQEqtGHB4URJDNREHHst66fQ1tb3TAG9m0k7ImB60pFIXdZ1sMctBZFxlMtoUm2IFOexX+TPgKNLrqv8ymzDzstmCtWYFSoxDp6jzvnmmVT3nXhJ141hJPt7FTwoPhW2qIcEca1l7L7zT5oWrBwUC+2y2/0ME6KzZ2Yp3a7FBQiK2Liva6f2yODoqzWqZHK69RC9+PXzxFqZohqo5bKfGkeYA6TFT3DrrTpC7leKns3f851CGvL3bCr5oqju45NgonXHjk4NTrP92L9Ux7e8qNkY6kOKM+hyuN/2Smpi7fJC4vKOJLrCwTsHcRxE9Nwv0blfMQSGaJw1yozQLGKMX9KHxnP3P1zEFVVDzlrV9ef3WmT6KK0GHmMw5kjHI6GHeqX4hONxkTLNQ+MO2wi3zL6hSEQmGzoHK8yfrmhZU2WiOkNhyTLtp74Lb/ArPhgd/6O7DF0go+UoUaA5listCBsX6gYChwOVK+g3YFJVfnNuETjJMcChnMJWU6Jarm0LjD7tQhDQMIm6ojS1BxAcYg+CTBfxEYqMdLoL/9kOfRXLipZ9nNzFQiHKjKCiCPmb6e1X+Xq6x/lZjKpb7zty951rd1I+qBRt469snvqbqKcP3amTiPkuL58FLL2VA1bu+/wXGzXXtvzPB1Nsm26LMxE/CkrwZhHFxccjh7hC1h+ze+2iFf7/opxvCu/M4gkrPoMpusxujkNQoVikPQIT3HycWnOGOSV9/8OJjNHuEl2u/VbWeNMBeXPA4KoVUvZk2ZI9AovNKZo3E/pgUmwFmoOqYzzstO2A1eGC2N9LzvfFenojSFQ2eISKo3Yxxo+WOug3u9fVNH5as1OO/YwYKQC/lHz8ZvlS9wqBZnmi98ig4TVmQ==">
-</div>
-    
-<div id="main-menu-bar">
-    <div id="AccusePage_MenuHolder">
-    
-    <nidvdmenu>
-    <ul>
-        <li>
-            <a href="http://oa.nidvd.org/mainpage/userpage.aspx">首 页</a>
-            <ul>
-                
-                <li><a href="http://oa.nidvd.org/person/info_edit.aspx">个人资料</a></li>
-                <li id="AccusePage_pwdMod"><a href="http://oa.nidvd.org/person/modpwd.aspx">修改密码</a></li>
-                
-                
-                <li id="AccusePage_uidmod"><a href="http://oa.nidvd.org/person/ChangeLoginName.aspx" style="color:#FF0000!important">修改登录名</a></li>
-                <li><a href="http://oa.nidvd.org/logout.aspx">注 销</a></li>
-            </ul>
-        </li>
-        <li id="AccusePage_groupPerson">
-            <a href="http://oa.nidvd.org/WorkFlow/FineBoard.aspx#">人 事</a>
-            <ul>
-                <li>
-                    <a href="http://oa.nidvd.org/WorkFlow/FineBoard.aspx#">通 知</a>
-                    <ul>
-                        <li id="AccusePage_PostNewButton"><a href="http://oa.nidvd.org/PostBoard/postNew.aspx">发布通知</a></li>
-                        <li id="AccusePage_ViewPostButton"><a href="http://oa.nidvd.org/PostBoard/PostList.aspx">通知列表</a></li>
-                        
-                        
-                    </ul>
-                </li>
-                <li>
-                    <a href="http://oa.nidvd.org/WorkFlow/FineBoard.aspx#">人 员</a>
-                    <ul>
-                        <li id="AccusePage_personList"><a href="http://oa.nidvd.org/person/personList.aspx">人员列表</a></li>
-                        <li id="AccusePage_GroupList"><a href="http://oa.nidvd.org/person/TeamList.aspx">小组列表</a></li>
-                        <li id="AccusePage_AwardList"><a href="./奖惩公示_files/奖惩公示.html">奖惩公示</a></li>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                    </ul>
-                </li>
-                <li>
-                    <a href="http://oa.nidvd.org/WorkFlow/FineBoard.aspx#" class="parent">考 评</a>
-                    <ul>
-                        <li id="AccusePage_PersonalEvaluation"><a href="http://oa.nidvd.org/person/EvaluationSheet.aspx">个人考评</a></li>
-                        
-                    </ul>
-                </li>
-                <li>
-                    <a href="http://oa.nidvd.org/WorkFlow/FineBoard.aspx#" class="parent">考 勤</a>
-                    <ul>
-                        
-                        <li id="AccusePage_ExerciseStat"><a href="http://oa.nidvd.org/person/ExecStat.aspx">出操统计</a></li>
-                        
-                        
-                        
-                        <li id="AccusePage_MySwipeRecord"><a href="http://oa.nidvd.org/person/ICCardSwipeRecord.aspx">刷卡记录</a></li>
-                        <li id="AccusePage_SwipeRecordQuery"><a href="http://oa.nidvd.org/person/SwipeQuery.aspx">门禁查询</a></li>
-                        <li id="AccusePage_outReport"><a href="http://oa.nidvd.org/person/iReport.aspx">外出报备</a></li>
-                        <li id="AccusePage_MyReportList"><a href="http://oa.nidvd.org/person/MyReportList.aspx">我的报备</a></li>
-                        <li id="AccusePage_CurrentTravel"><a href="http://oa.nidvd.org/person/TravelList.aspx">当前出差</a></li>
-                        <li id="AccusePage_CurrentBusiness"><a href="http://oa.nidvd.org/person/BusinessList.aspx">当前外出</a></li>
-                        <li id="AccusePage_DrivingList"><a href="http://oa.nidvd.org/person/DrivingList.aspx">出车记录</a></li>
-                        
-                    </ul>
-                </li>
-            </ul>
-        </li>
-        <li id="AccusePage_groupResearch">
-            <a href="http://oa.nidvd.org/WorkFlow/FineBoard.aspx#">科 研</a>
-            <ul>
-                <li id="AccusePage_groupWorkingLog">
-                    <a href="http://oa.nidvd.org/WorkFlow/FineBoard.aspx#">工作日志</a>
-                    <ul>
-                        <li id="AccusePage_MyWorkingLog"><a href="http://oa.nidvd.org/WorkingLog/MyLog.aspx">我的日志</a></li>
-                        <li id="AccusePage_WorkingLogQuery"><a href="http://oa.nidvd.org/WorkingLog/LogQuery.aspx">日志查询</a></li>
-                        
-                        <li id="AccusePage_WorkingLogAdmin"><a href="http://oa.nidvd.org/WorkingLog/LogAdmin.aspx">日志管理</a></li>
-                    </ul>
-                </li>  
-                <li id="AccusePage_EMOrder">
-                    <a id="AccusePage_EMOrderLink" href="javascript:__doPostBack('AccusePage$EMOrderLink','')">仪器预约</a>
-                </li>
-                <li id="AccusePage_MeetingRoomOrder">
-                    <a id="AccusePage_MeetingRoomOrderLink" href="javascript:__doPostBack('AccusePage$MeetingRoomOrderLink','')">会议预定</a>
-                </li>              
-                <li id="AccusePage_MapService">
-                    <a id="AccusePage_MapServiceLink" href="javascript:__doPostBack('AccusePage$MapServiceLink','')">地图服务</a>
-                </li>
-                <li id="AccusePage_GrantList"><a href="http://oa.nidvd.org/grant/List.aspx">项目列表</a></li>
-                
-                
-                
-                
-                
-                <li id="AccusePage_DocumentDownload"><a href="http://oa.nidvd.org/misc/download.aspx">文档下载</a></li>
-            </ul>
-        </li>
-
-        <li id="AccusePage_groupAsset">
-            <a href="http://oa.nidvd.org/WorkFlow/FineBoard.aspx#">资 产</a>
-            <ul>
-                <li>
-                    <a href="http://oa.nidvd.org/WorkFlow/FineBoard.aspx#">库 房</a>
-                    <ul>
-                        <li id="AccusePage_mList"><a href="http://oa.nidvd.org/material/mList.aspx">库房查询</a></li>
-                        <li id="AccusePage_order_mylist"><a href="http://oa.nidvd.org/material/order_mylist.aspx">我的订单</a></li>
-                        <li id="AccusePage_visorAll"><a href="http://oa.nidvd.org/mainpage/visorAll.aspx">物品监管</a></li>
-                    </ul>
-                </li> 
-                <li>
-                    <a href="http://oa.nidvd.org/WorkFlow/FineBoard.aspx#" class="parent">采 购</a>
-                    <ul>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-
-                    </ul>
-                </li>
-                <li>
-                    <a href="http://oa.nidvd.org/WorkFlow/FineBoard.aspx#" class="parent">细 胞 库</a>
-                    <ul>
-                        <li id="AccusePage_ImportApply"><a href="http://oa.nidvd.org/Cell/NewSample.aspx">冻存申请</a></li>
-                         <li id="AccusePage_MyCellApply"><a href="http://oa.nidvd.org/Cell/MyAppList.aspx">我的申请</a></li>
-
-                        <li id="AccusePage_CellBrowser"><a href="http://oa.nidvd.org/Cell/CellBrowser.aspx">细胞查询</a></li>
-                        <li id="AccusePage_PotList"><a href="http://oa.nidvd.org/Cell/PotList.aspx">液 氮 罐</a></li>
-                        
-                        
-                        <li id="AccusePage_CellReview"><a href="http://oa.nidvd.org/Cell/CellReview.aspx">细胞审核</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="http://oa.nidvd.org/WorkFlow/FineBoard.aspx#" class="parent">血 清 库</a>
-                    <ul>
-                        
-                    </ul>
-                </li>
-                <li id="AccusePage_groupFinance">
-                    <a href="http://oa.nidvd.org/WorkFlow/FineBoard.aspx#">财 务</a>
-                    <ul>
-                        <li>
-                            <a class="parent">现 金</a>
-                            <ul>
-                                <li id="AccusePage_regInvoice"><a href="http://oa.nidvd.org/mainpage/regInvoice.aspx">发票录入</a></li>
-                                <li id="AccusePage_myInvoice"><a href="http://oa.nidvd.org/mainpage/myInvoice.aspx">发票列表</a></li>
-                                <li id="AccusePage_myExpense"><a href="http://oa.nidvd.org/mainpage/myExpenses.aspx">现金列表</a></li>
-                                
-                                
-                                
-                                
-                                
-                                
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="parent">转 账</a>
-                            <ul>
-                                <li id="AccusePage_NewBill"><a href="http://oa.nidvd.org/mainpage/NewBill.aspx">报账申请</a></li>
-                                <li id="AccusePage_BillList"><a href="http://oa.nidvd.org/material/billList.aspx">报账列表</a></li>
-                                <li id="AccusePage_AccountAdmin"><a href="http://oa.nidvd.org/material/AccountAdmin.aspx">账户登记</a></li>
-                                
-                                
-                                
-                            </ul>
-                        </li>
-                        
-                    </ul>
-                </li>
-            </ul>
-        </li>
-
-        <li id="AccusePage_groupDevice">
-            <a href="http://oa.nidvd.org/WorkFlow/FineBoard.aspx#">仪 器</a>
-            <ul>
-                <li id="AccusePage_MaintList"><a href="http://oa.nidvd.org/Device/CheckList.aspx">维护清单</a></li>
-                <li id="AccusePage_DeviceStatus"><a href="http://oa.nidvd.org/Device/StatusView.aspx">仪器状态</a></li>
-                <li id="AccusePage_MyDevice"><a href="http://oa.nidvd.org/Device/DeviceList.aspx?MyDevice=1">我的仪器</a></li>
-                <li id="AccusePage_DeviceList"><a href="http://oa.nidvd.org/Device/DeviceList.aspx">仪器查询</a></li>
-                
-                <li id="AccusePage_DeviceApp"><a href="http://oa.nidvd.org/Device/order_list.aspx">仪器申购</a></li>
-                
-            </ul>
-        </li>
-
-        <li id="AccusePage_groupBook">
-            <a href="http://oa.nidvd.org/WorkFlow/FineBoard.aspx#">图 书</a>
-            <ul>
-                <li><a href="http://oa.nidvd.org/images/r.jpg" target="_blank">管理条例</a></li>
-                <li id="AccusePage_mybook"><a href="http://oa.nidvd.org/book/MyBook.aspx">我的图书</a></li>
-                
-                <li id="AccusePage_bookSearch"><a href="http://oa.nidvd.org/book/BookSearch.aspx">图书查询</a></li>
-                
-                
-                
-                
-                <li id="AccusePage_booksum"><a href="http://oa.nidvd.org/book/bookSum.aspx">图书统计</a></li>
-            </ul>
-        </li>
-
-        <li id="AccusePage_groupOutsource">
-            <a href="http://oa.nidvd.org/WorkFlow/FineBoard.aspx#">测序合成</a>
-            <ul>
-                <li>
-                    <a href="http://oa.nidvd.org/WorkFlow/FineBoard.aspx#">测 序</a>
-                    <ul>
-                        <li id="AccusePage_SeqList"><a href="http://oa.nidvd.org/Primer/SeqList.aspx">我的测序</a></li>
-                        
-                        
-                        <li id="AccusePage_SeqApp"><a href="http://oa.nidvd.org/Primer/SeqApp.aspx">测序申请</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="http://oa.nidvd.org/WorkFlow/FineBoard.aspx#">引物合成</a>
-                    <ul>
-                        <li id="AccusePage_MyPrimer"><a href="http://oa.nidvd.org/Primer/MyPrimer.aspx">我的引物</a></li>
-                        
-                        <li id="AccusePage_PrimerApp"><a href="http://oa.nidvd.org/Primer/PrimerApp.aspx">引物申请</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="http://oa.nidvd.org/WorkFlow/FineBoard.aspx#">其 他</a>
-                    <ul>
-                        <li id="AccusePage_bioSynthList"><a href="http://oa.nidvd.org/Primer/bioSynthList.aspx">合成列表</a></li>
-                        <li id="AccusePage_bioSynthNew"><a href="http://oa.nidvd.org/Primer/bioSynthNew.aspx">合成申请</a></li>
-                        
-
-                    </ul>
-                </li>
-
-            </ul>
-        </li>
-
-        <li id="AccusePage_groupBBS">
-            <a href="http://oa.nidvd.org/WorkFlow/FineBoard.aspx#">讨 论 区</a>
-            <ul>
-                
-                <li id="AccusePage_Groupmessage"><a href="http://oa.nidvd.org/guestbook/MessegeList.aspx">组内讨论区</a></li>
-                <li id="AccusePage_PublicMessage"><a href="http://oa.nidvd.org/guestbook/subList.aspx">公共讨论区</a></li>
-            </ul>
-        </li>
-    </ul>
-    </nidvdmenu>
-    
-    </div>
-
-    <div id="main-menu-CustomizedPad">
-        
-
-    </div>
-    
-    
-    <div id="main-menu-right-background-image">
-        <img src="./奖惩公示_files/menu_back_evo.png" alt="">
-    </div>
-</div>
-<div id="menu-block" style="height: 32px;"></div>
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
     <script type="text/javascript">
-//<![CDATA[
-Sys.WebForms.PageRequestManager._initialize('AccusePageScriptManager', 'form1', [], [], [], 90, '');
-//]]>
-</script>
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>Xf by usepr</title>
+  </head>
 
-    <div id="FineDisplayPad">
-        <div id="FineTitle" class="ShowFullTitle">
-            <div class="TemplateLeftTitleContent">
-                公示栏
-            </div>
-            <div class="TemplateRightTitleContent">
-                <a id="ShowNewFinePad" href="javascript:__doPostBack('ShowNewFinePad','')">奖惩申请</a>
-            </div>
-            <div class="FixFireFoxHeightBug"></div>
-        </div>
-        
-        <div>
-	<table class="GridTable" cellspacing="0" cellpadding="6" rules="all" border="1" id="FineListView" style="font-size:12px;width:100%;border-collapse:collapse;">
-		<tbody><tr align="center" style="color:White;background-color:#1E65BE;">
-			<th align="left" scope="col">事件类型</th><th scope="col">当事人</th><th scope="col"><a href="javascript:__doPostBack('FineListView','Sort$TeamMasterName')" style="color:White;">组长</a></th><th scope="col"><a href="javascript:__doPostBack('FineListView','Sort$ExeUserName')" style="color:White;">申请人</a></th><th scope="col">申请时间</th><th scope="col">理由</th><th scope="col">金额</th><th scope="col">处理状态</th><th scope="col">支付状态</th><th scope="col">计时</th>
-		</tr><tr align="center" valign="top" style="background-color:#F2F8FC;">
-			<td align="left" style="width:90px;">
-                        <img id="FineListView_ctl02_AwardIcon" src="./奖惩公示_files/award_1.gif" style="height:24px;border-width:0px;vertical-align:text-top;">
-                        奖励
-                    </td><td align="center"><a href="javascript:__doPostBack('FineListView','ShowDetails$0')">王思令</a></td><td align="center">郑子峥</td><td align="center">唐济贤</td><td align="center">2015-07-02</td><td align="left" style="width:500px;">
-                        管理367表现突出
-                    </td><td align="center">¥100.00</td><td align="center">
-                        初级审核
-                    </td><td align="center">
-                        
-                    </td><td align="center">
-                        0
-                    </td>
-		</tr><tr align="center" valign="top" style="background-color:White;">
-			<td align="left" style="width:90px;">
-                        <img id="FineListView_ctl03_AwardIcon" src="./奖惩公示_files/award_1.gif" style="height:24px;border-width:0px;vertical-align:text-top;">
-                        奖励
-                    </td><td align="center"><a href="javascript:__doPostBack('FineListView','ShowDetails$1')">黄小芬</a></td><td align="center">李少伟</td><td align="center">张荣为</td><td align="center">2015-07-02</td><td align="left" style="width:500px;">
-                        黄小芬同学自管理203HPLC台面和204超离房间以来，尽心尽责，积极配合，管理期间负责区域卫生一直保持干净整洁，奖励一百元，经讨论决定给予奖励一百元，以资鼓励！
-                    </td><td align="center">¥100.00</td><td align="center">
-                        已生效
-                    </td><td align="center">
-                        等待支付
-                    </td><td align="center">
-                        0
-                    </td>
-		</tr><tr align="center" valign="top" style="background-color:#F2F8FC;">
-			<td align="left" style="width:90px;">
-                        <img id="FineListView_ctl04_AwardIcon" src="./奖惩公示_files/award_1.gif" style="height:24px;border-width:0px;vertical-align:text-top;">
-                        奖励
-                    </td><td align="center"><a href="javascript:__doPostBack('FineListView','ShowDetails$2')">张小妹</a></td><td align="center">顾颖</td><td align="center">叶江辉</td><td align="center">2015-07-02</td><td align="left" style="width:500px;">
-                        张芝晴管理211菌体培养室进步显著，努力解决问题，积极配合片区管理员工作，经讨论决定给予奖励一百元，以资鼓励！
-                    </td><td align="center">¥100.00</td><td align="center">
-                        已生效
-                    </td><td align="center">
-                        等待支付
-                    </td><td align="center">
-                        0
-                    </td>
-		</tr><tr align="center" valign="top" style="background-color:White;">
-			<td align="left" style="width:90px;">
-                        <img id="FineListView_ctl05_AwardIcon" src="./奖惩公示_files/award_1.gif" style="height:24px;border-width:0px;vertical-align:text-top;">
-                        奖励
-                    </td><td align="center"><a href="javascript:__doPostBack('FineListView','ShowDetails$3')">潘德全</a></td><td align="center">程通</td><td align="center">张荣为</td><td align="center">2015-07-02</td><td align="left" style="width:500px;">
-                        潘德全同学自超速离心机以来尽心尽责，积极配合，努力解决问题，经讨论决定给予奖励一百元，以资鼓励！
-                    </td><td align="center">¥100.00</td><td align="center">
-                        已生效
-                    </td><td align="center">
-                        等待支付
-                    </td><td align="center">
-                        0
-                    </td>
-		</tr><tr align="center" valign="top" style="background-color:#F2F8FC;">
-			<td align="left" style="width:90px;">
-                        <img id="FineListView_ctl06_AwardIcon" src="./奖惩公示_files/award_1.gif" style="height:24px;border-width:0px;vertical-align:text-top;">
-                        奖励
-                    </td><td align="center"><a href="javascript:__doPostBack('FineListView','ShowDetails$4')">范飞</a></td><td align="center">李少伟</td><td align="center">张荣为</td><td align="center">2015-07-02</td><td align="left" style="width:500px;">
-                        范飞同学自管理203AKTA以来尽心尽责，积极配合，努力解决问题，经讨论决定给予奖励一百元，以资鼓励！
-                    </td><td align="center">¥100.00</td><td align="center">
-                        已生效
-                    </td><td align="center">
-                        等待支付
-                    </td><td align="center">
-                        0
-                    </td>
-		</tr><tr align="center" valign="top" style="background-color:White;">
-			<td align="left" style="width:90px;">
-                        <img id="FineListView_ctl07_AwardIcon" src="./奖惩公示_files/award_1.gif" style="height:24px;border-width:0px;vertical-align:text-top;">
-                        奖励
-                    </td><td align="center"><a href="javascript:__doPostBack('FineListView','ShowDetails$5')">王邵娟</a></td><td align="center">袁权</td><td align="center">洪聪明</td><td align="center">2015-07-02</td><td align="left" style="width:500px;">
-                        积极配合管理EIA，并对EIA各台洗板机的维护做出努力，经讨论决定给予奖励一百元，以资鼓励！
-                    </td><td align="center">¥100.00</td><td align="center">
-                        已生效
-                    </td><td align="center">
-                        等待支付
-                    </td><td align="center">
-                        0
-                    </td>
-		</tr><tr align="center" valign="top" style="background-color:#F2F8FC;">
-			<td align="left" style="width:90px;">
-                        <img id="FineListView_ctl08_AwardIcon" src="./奖惩公示_files/award_1.gif" style="height:24px;border-width:0px;vertical-align:text-top;">
-                        奖励
-                    </td><td align="center"><a href="javascript:__doPostBack('FineListView','ShowDetails$6')">纪文芳</a></td><td align="center">郑子峥</td><td align="center">王进</td><td align="center">2015-07-02</td><td align="left" style="width:500px;">
-                        在五楼核酸实验相关房间做实验的过程中，能严格遵守房间管理制度，未出现过违规现象，且能积极配合管理员的管理工作；在231房间使用仪器过程中，遇到突发事件能积极向管理管反馈、积极配合管理员的工作。
-                    </td><td align="center">¥100.00</td><td align="center">
-                        已生效
-                    </td><td align="center">
-                        等待支付
-                    </td><td align="center">
-                        0
-                    </td>
-		</tr><tr align="center" valign="top" style="background-color:White;">
-			<td align="left" style="width:90px;">
-                        <img id="FineListView_ctl09_AwardIcon" src="./奖惩公示_files/award_1.gif" style="height:24px;border-width:0px;vertical-align:text-top;">
-                        奖励
-                    </td><td align="center"><a href="javascript:__doPostBack('FineListView','ShowDetails$7')">李姝璇</a></td><td align="center">程通</td><td align="center">赵欢</td><td align="center">2015-07-02</td><td align="left" style="width:500px;">
-                        430房间管理尽心尽责，积极配合，努力解决问题，起到表率作用经讨论决定给予奖励一百元，以资鼓励！
-                    </td><td align="center">¥100.00</td><td align="center">
-                        已生效
-                    </td><td align="center">
-                        等待支付
-                    </td><td align="center">
-                        0
-                    </td>
-		</tr><tr align="center" valign="top" style="background-color:#F2F8FC;">
-			<td align="left" style="width:90px;">
-                        <img id="FineListView_ctl10_AwardIcon" src="./奖惩公示_files/award_1.gif" style="height:24px;border-width:0px;vertical-align:text-top;">
-                        奖励
-                    </td><td align="center"><a href="javascript:__doPostBack('FineListView','ShowDetails$8')">郑锦煅</a></td><td align="center">杜海莲</td><td align="center">李瑾瑾</td><td align="center">2015-07-01</td><td align="left" style="width:500px;">
-                        郑锦煅对工作负责，认真，积极配合各个片区卫生管理打扫，尽心尽责。不抱怨。经讨论决定给予奖励一百元，以资鼓励！
-                    </td><td align="center">¥100.00</td><td align="center">
-                        已生效
-                    </td><td align="center">
-                        等待支付
-                    </td><td align="center">
-                        0
-                    </td>
-		</tr><tr align="center" valign="top" style="background-color:White;">
-			<td align="left" style="width:90px;">
-                        <img id="FineListView_ctl11_AwardIcon" src="./奖惩公示_files/award_1.gif" style="height:24px;border-width:0px;vertical-align:text-top;">
-                        奖励
-                    </td><td align="center"><a href="javascript:__doPostBack('FineListView','ShowDetails$9')">熊华龙</a></td><td align="center">袁权</td><td align="center">陈斌冰</td><td align="center">2015-07-01</td><td align="left" style="width:500px;">
-                        熊华龙自从接管管理244房间与247房间进步显著，积极配合，努力处理问题，经讨论决定给予奖励一百元，以资鼓励！
-                    </td><td align="center">¥100.00</td><td align="center">
-                        已生效
-                    </td><td align="center">
-                        等待支付
-                    </td><td align="center">
-                        0
-                    </td>
-		</tr><tr align="center" valign="top" style="background-color:#F2F8FC;">
-			<td align="left" style="width:90px;">
-                        
-                        罚款（仪器）
-                    </td><td align="center"><a href="javascript:__doPostBack('FineListView','ShowDetails$10')">陈毅歆</a></td><td align="center">陈毅歆</td><td align="center">康雅虹</td><td align="center">2015-06-30</td><td align="left" style="width:500px;">
-                        2015年6月，沈晨同学光因使用超净台操作不慎，导致液体进入超净台主板从而使得主板烧毁。其本人主动承认错误并解释原因，认错态度良好。 根据实验室正式公布的仪器损坏赔偿条例，应罚款300元。其中根据责任承担比例，沈晨光应承担90%*300=270；而组长陈毅歆应承担10%*300=30。
-                    </td><td align="center">¥30.00</td><td align="center">
-                        新申请
-                    </td><td align="center">
-                        
-                    </td><td align="center">
-                        2
-                    </td>
-		</tr><tr align="center" valign="top" style="background-color:White;">
-			<td align="left" style="width:90px;">
-                        
-                        罚款（仪器）
-                    </td><td align="center"><a href="javascript:__doPostBack('FineListView','ShowDetails$11')">沈晨光</a></td><td align="center">陈毅歆</td><td align="center">康雅虹</td><td align="center">2015-06-30</td><td align="left" style="width:500px;">
-                        2015年6月，沈晨同学光因使用超净台操作不慎，导致液体进入超净台主板从而使得主板烧毁。其本人主动承认错误并解释原因，认错态度良好。 根据实验室正式公布的仪器损坏赔偿条例，应罚款300元。其中根据责任承担比例，沈晨光应承担90%*400=270；而组长陈毅歆应承担10%*300=30。
-                    </td><td align="center">¥270.00</td><td align="center">
-                        新申请
-                    </td><td align="center">
-                        
-                    </td><td align="center">
-                        2
-                    </td>
-		</tr><tr align="center" valign="top" style="background-color:#F2F8FC;">
-			<td align="left" style="width:90px;">
-                        
-                        罚款（仪器）
-                    </td><td align="center"><a href="javascript:__doPostBack('FineListView','ShowDetails$12')">巫光华</a></td><td align="center">郑子峥</td><td align="center">叶江辉</td><td align="center">2015-06-02</td><td align="left" style="width:500px;">
-                        5月21日登记使用时间为14:09到15:00，实际使用后未关机，直到20:15分再次使用后才关机且没有补登记。对此根据荧光显微镜保证书罚款100（中途师傅也在，所以各罚人民币50元，师傅们记得多强调）
-                    </td><td align="center">¥50.00</td><td align="center">
-                        已生效
-                    </td><td align="center">
-                        等待支付
-                    </td><td align="center">
-                        8
-                    </td>
-		</tr><tr align="center" valign="top" style="background-color:White;">
-			<td align="left" style="width:90px;">
-                        
-                        罚款（仪器）
-                    </td><td align="center"><a href="javascript:__doPostBack('FineListView','ShowDetails$13')">李永超</a></td><td align="center">程通</td><td align="center">王思令</td><td align="center">2015-06-06</td><td align="left" style="width:500px;">
-                        李永超 于2015年5月9日在对BD流式鞘液进行灭菌过程中，由于疏忽大意致使放气阀门丢失，因此给予其处罚，罚款100元。<br><br>在此重申，BD流式细胞仪为贵重仪器，对于不当的操作行为及过失将给与严厉处罚！！！
-                    </td><td align="center">¥100.00</td><td align="center">
-                        已生效
-                    </td><td align="center">
-                        等待支付
-                    </td><td align="center">
-                        8
-                    </td>
-		</tr><tr align="center" valign="top" style="background-color:#F2F8FC;">
-			<td align="left" style="width:90px;">
-                        
-                        罚款（仪器）
-                    </td><td align="center"><a href="javascript:__doPostBack('FineListView','ShowDetails$14')">张伟</a></td><td align="center">郑子峥</td><td align="center">王思令</td><td align="center">2015-06-06</td><td align="left" style="width:500px;">
-                        张伟 于2015年5月31日在使用BD流式细胞仪过程中由于疏忽致使喷嘴O形圈丢失，因此作出处罚，罚款200元。<br><br>在此重申 1、BD流式细胞仪为贵重仪器，对于不当的操作行为及过失将给与严厉处罚！！！<br>&nbsp; &nbsp; &nbsp; &nbsp;  2、如若其他人再次出现相同问题加倍处罚！！！<br>&nbsp; &nbsp; &nbsp; &nbsp;  3、请使用者在使用之前认真检查仪器是否出现问题，如出现问题则追究前一使用者责任。若在使用过程中出现问题请 <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 使用者勇于承担责任，对一切妄图掩盖问题或逃避责任的行为严惩不贷！！！
-                    </td><td align="center">¥200.00</td><td align="center">
-                        已生效
-                    </td><td align="center">
-                        等待支付
-                    </td><td align="center">
-                        8
-                    </td>
-		</tr><tr align="center" valign="top" style="background-color:White;">
-			<td align="left" style="width:90px;">
-                        <img id="FineListView_ctl17_AwardIcon" src="./奖惩公示_files/award_1.gif" style="height:24px;border-width:0px;vertical-align:text-top;">
-                        奖励
-                    </td><td align="center"><a href="javascript:__doPostBack('FineListView','ShowDetails$15')">周兵</a></td><td align="center">罗文新</td><td align="center">庄思洁</td><td align="center">2015-06-01</td><td align="left" style="width:500px;">
-                        周兵同学自管理322、323两间讨论间以来，尽心尽责。打扫讨论间亲力亲为，奖励一百元，以资鼓励！
-                    </td><td align="center">¥100.00</td><td align="center">
-                        已生效
-                    </td><td align="center">
-                        等待支付
-                    </td><td align="center">
-                        14
-                    </td>
-		</tr><tr align="center" valign="top" style="background-color:#F2F8FC;">
-			<td align="left" style="width:90px;">
-                        <img id="FineListView_ctl18_AwardIcon" src="./奖惩公示_files/award_1.gif" style="height:24px;border-width:0px;vertical-align:text-top;">
-                        奖励
-                    </td><td align="center"><a href="javascript:__doPostBack('FineListView','ShowDetails$16')">熊丽霞</a></td><td align="center">葛胜祥</td><td align="center">周国梁</td><td align="center">2015-06-01</td><td align="left" style="width:500px;">
-                        熊丽霞、杨晗同学在2楼细胞间的管理上积极配合片区管理员工作，尽职尽责，将细胞间管理由黑板变成红板，特奖励200RMB，以资鼓励；同时欢迎中心领导随时莅临核查。
-                    </td><td align="center">¥200.00</td><td align="center">
-                        已生效
-                    </td><td align="center">
-                        已支付
-                    </td><td align="center">
-                        
-                    </td>
-		</tr><tr align="center" valign="top" style="background-color:White;">
-			<td align="left" style="width:90px;">
-                        
-                        罚款（仪器）
-                    </td><td align="center"><a href="javascript:__doPostBack('FineListView','ShowDetails$17')">李永超</a></td><td align="center">程通</td><td align="center">王思令</td><td align="center">2015-06-06</td><td align="left" style="width:500px;">
-                        李永超 于2015年5月9日在对BD流式鞘液进行灭菌过程中，由于疏忽大意致使放气阀门丢失，因此给予其处罚，罚款100元。			<br>			<br><br>在此重申 1、BD流式细胞仪为贵重仪器，对于不当的操作行为及过失将给与严厉处罚！！！			<br>&nbsp; &nbsp; &nbsp; &nbsp;  2、如若其他人再次出现相同问题加倍处罚！！！			<br>&nbsp; &nbsp; &nbsp; &nbsp;  3、请使用者在使用之前认真检查仪器是否出现问题，如出现问题则追究前一使用者责任。若在使用过程中出现问题请 			<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 使用者勇于承担责任，对一切妄图掩盖问题或逃避责任的行为严惩不贷！！！
-                    </td><td align="center">¥100.00</td><td align="center">
-                        新申请
-                    </td><td align="center">
-                        
-                    </td><td align="center">
-                        26
-                    </td>
-		</tr><tr align="center" valign="top" style="background-color:#F2F8FC;">
-			<td align="left" style="width:90px;">
-                        
-                        罚款（仪器）
-                    </td><td align="center"><a href="javascript:__doPostBack('FineListView','ShowDetails$18')">张可</a></td><td align="center">郑子峥</td><td align="center">洪聪明</td><td align="center">2015-04-23</td><td align="left" style="width:500px;">
-                        在EIA洗板时未注意到废液瓶已经满瓶，导致废液严重倒吸，罚款100元。<br><br>再次强调，为了延长洗板机的使用寿命，请大家在洗板时务必查看废液瓶中废液是否满瓶，按控制面板的按钮务必轻点。
-                    </td><td align="center">¥100.00</td><td align="center">
-                        已生效
-                    </td><td align="center">
-                        等待支付
-                    </td><td align="center">
-                        31
-                    </td>
-		</tr><tr align="center" valign="top" style="background-color:White;">
-			<td align="left" style="width:90px;">
-                        
-                        罚款（仪器）
-                    </td><td align="center"><a href="javascript:__doPostBack('FineListView','ShowDetails$19')">王思令</a></td><td align="center">郑子峥</td><td align="center">袁瑞雪</td><td align="center">2015-04-25</td><td align="left" style="width:500px;">
-                        王思令于4月24日使用仪器未登记，违反使用规定。特此予以警告，罚款100元。望今后所有同学使用时，遵守使用规定，并及时反馈遇到问题。
-                    </td><td align="center">¥100.00</td><td align="center">
-                        已生效
-                    </td><td align="center">
-                        已支付
-                    </td><td align="center">
-                        
-                    </td>
-		</tr><tr class="PagerGrid">
-			<td colspan="10"><table border="0">
-				<tbody><tr>
-					<td><div class="blueButton"><span class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button"><span class="ui-button-text">1</span></span></div></td><td><a href="javascript:__doPostBack('FineListView','Page$2')" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button"><span class="ui-button-text">2</span></a></td><td><a href="javascript:__doPostBack('FineListView','Page$3')" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button"><span class="ui-button-text">3</span></a></td><td><a href="javascript:__doPostBack('FineListView','Page$4')" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button"><span class="ui-button-text">4</span></a></td><td><a href="javascript:__doPostBack('FineListView','Page$5')" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button"><span class="ui-button-text">5</span></a></td><td><a href="javascript:__doPostBack('FineListView','Page$6')" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button"><span class="ui-button-text">6</span></a></td><td><a href="javascript:__doPostBack('FineListView','Page$7')" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button"><span class="ui-button-text">7</span></a></td><td><a href="javascript:__doPostBack('FineListView','Page$8')" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button"><span class="ui-button-text">8</span></a></td><td><a href="javascript:__doPostBack('FineListView','Page$9')" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button"><span class="ui-button-text">9</span></a></td><td><a href="javascript:__doPostBack('FineListView','Page$10')" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button"><span class="ui-button-text">10</span></a></td><td><a href="javascript:__doPostBack('FineListView','Page$11')" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button"><span class="ui-button-text">...</span></a></td><td><a href="javascript:__doPostBack('FineListView','Page$Last')" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button"><span class="ui-button-text">末页</span></a></td>
-				</tr>
-			</tbody></table></td>
-		</tr>
-	</tbody></table>
-</div>
+  <body>
+    <a id="forkme_banner" href="https://github.com/usepr/xf">View on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Xf</h1>
+            <h2></h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/usepr/xf/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/usepr/xf/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <h3>
+<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+
+<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+
+<pre><code>$ cd your_repo_root/repo_name
+$ git fetch origin
+$ git checkout gh-pages
+</code></pre>
+
+<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+
+<h3>
+<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+
+<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+
+<h3>
+<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+
+<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+
+<h3>
+<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+
+<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+
+<h3>
+<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+
+<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/usepr">usepr</a> can be found on <a href="https://github.com/usepr/xf">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
     </div>
-    
-    
-    
-    
-    </form>
 
-
-</body><div></div></html>
+    
+  </body>
+</html>
