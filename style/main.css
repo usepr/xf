@@ -35,7 +35,7 @@ h2.subtitle {
 	background: transparent url('../images/dash.png') 0 0 no-repeat;
 	float: left;
 	margin-left: 20px;
-	margin-bottom: 20px;
+	margin-top: 20px;
 	position: relative;
 }
 
@@ -45,7 +45,7 @@ h2.subtitle {
 	background: transparent url('../images/dash.png') 0 0 no-repeat;
 	float: left;
 	margin-left: 230px;
-	margin-bottom: 20px;
+	margin-top: 20px;
 	position: relative;
 }
 
@@ -56,7 +56,6 @@ h2.subtitle {
 	float: left;
 	margin-left: 20px;
 	margin-right: 230px;
-	margin-bottom: 20px;
 	position: relative;
 }
 
@@ -66,7 +65,7 @@ h2.subtitle {
 	background: transparent url('../images/dash.png') 0 0 no-repeat;
 	float: left;
 	margin-left: 45px;
-	margin-bottom: 20px;
+	margin-top: 20px;
 	position: relative;
 }
 
@@ -76,7 +75,6 @@ h2.subtitle {
 	background: transparent url('../images/dash.png') 0 0 no-repeat;
 	float: left;
 	margin-left: 0px;
-	margin-bottom: 20px;
 	position: relative;
 }
 
@@ -86,7 +84,6 @@ h2.subtitle {
 	background: transparent url('../images/dash.png') 0 0 no-repeat;
 	float: left;
 	margin-right: 45px;
-	margin-bottom: 20px;
 	position: relative;
 }
 
