@@ -1,90 +1,87 @@
-<html class=" js borderradius boxshadow textshadow cssgradients fontface"><head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=640">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<script language="Javascript" type="text/javascript" src="js/jquery-1.4.1.js"></script>
+	<script language="Javascript" type="text/javascript" src="js/jquery.lwtCountdown-1.0.js"></script>
+	<link rel="Stylesheet" type="text/css" href="style/main.css"></link>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-    <link rel="stylesheet" href="stylesheets/core.css" media="screen">
-    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+	<title>usepr</title>
+</head>
 
-    <script type="text/javascript" src="javascripts/modernizr.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $('#main_content').headsmart()
-      })
-    </script>
-    <title>Xf by usepr</title>
-  </head>
+<body>
 
-  <body>
-    
-    <div class="shell">
+	<div id="container">
+		<h1>FIRST MET</h1>
+		<h2 class="subtitle">2010.10.1</h2>
 
-      <header>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <h1>Xf</h1>
-            <h2></h2>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-      </header>
+		<!-- Countdown dashboard start -->
+		<div id="countdown_dashboard">
+			<div class="dash years_dash">
+				<span class="dash_title">years</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
+			<div class="dash months_dash">
+				<span class="dash_title">months</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
+			
+			<div class="dash days1_dash">
+				<span class="dash_title"></span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
+			
+			<div class="dash days2_dash">
+				<span class="dash_title">days</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
 
-      <section id="downloads">
-        
-      </section>
+			<div class="dash hours_dash">
+				<span class="dash_title">hours</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
 
+			<div class="dash minutes_dash">
+				<span class="dash_title">minutes</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
 
-      
+			<div class="dash seconds_dash">
+				<span class="dash_title">seconds</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
 
+		</div>
+		<!-- Countdown dashboard end -->
+		
+		<div class="dev_comment">
+			XQ （づ￣3￣）づ╭❤～ FF
+		</div>
 
-      <section id="main_content">
-        <h3 class="header-level-1">
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>范飞同学自成为小强女朋友以来尽心尽责，积极配合。经讨论决定给予奖励一百元，以资鼓励！望范飞同学继续做个善良、可爱、勤劳、勇敢、自信的好孩子。</h3>
-  
-  
+		<script language="javascript" type="text/javascript">
+			jQuery(document).ready(function() {
+				$('#countdown_dashboard').countDown({
+					targetDate: {
+						'day': 		1,
+						'month': 	10,
+						'year': 	2010,
+						'hour': 	0,
+						'min': 		0,
+						'sec': 		0
+					}
+				});
+			});
+		</script>
+	
+	</div>
+</body>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </section>
-
-      <footer>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <p>I Love you, small fly.</p>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-        
-        <span class="octocat"></span>
-      </footer>
-
-    </div>
-
-    
-  
-
-</body></html>
+</html>
