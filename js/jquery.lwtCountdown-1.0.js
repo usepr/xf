@@ -76,18 +76,11 @@
 		difdt = new Date(diffSecs*1000);
 		mons = difdt.getMonth();
 		years = difdt.getFullYear() - 1970;
+		days = difdt.getDate() - 1;
 		
-		if ($.data($this[0], 'omitWeeks') == true)
-		{
-			days = Math.floor(diffSecs/60/60/24);
-			weeks = Math.floor(days/100);
-			days = days%100;
-		}
-		else 
-		{
-			days = Math.floor(diffSecs/60/60/24)%7;
-			weeks = Math.floor(diffSecs/60/60/24/7);
-		}
+		day2 = Math.floor(diffSecs/60/60/24);
+		day1 = Math.floor(day2/100);
+		day2 = day2%100;
 
 		
 		$this.dashChangeTo(id, 'years_dash', years, duration ? duration : 1200);
@@ -95,8 +88,9 @@
 		$this.dashChangeTo(id, 'seconds_dash', secs, duration ? duration : 800);
 		$this.dashChangeTo(id, 'minutes_dash', mins, duration ? duration : 1200);
 		$this.dashChangeTo(id, 'hours_dash', hours, duration ? duration : 1200);
-		$this.dashChangeTo(id, 'days2_dash', days, duration ? duration : 1200);
-		$this.dashChangeTo(id, 'days1_dash', weeks, duration ? duration : 1200);
+		$this.dashChangeTo(id, 'days2_dash', day2, duration ? duration : 1200);
+		$this.dashChangeTo(id, 'days1_dash', day1, duration ? duration : 1200);
+		$this.dashChangeTo(id, 'days_dash', days, duration ? duration : 1200);
 
 		$.data($this[0], 'diffSecs', diffSecs);
 		if (diffSecs > 0)
