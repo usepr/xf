@@ -1,3 +1,93 @@
-<html>
-	<a href="http://www.baidu.com/1/2">Hello</a>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<script language="Javascript" type="text/javascript" src="js/jquery-1.4.1.js"></script>
+	<script language="Javascript" type="text/javascript" src="js/jquery.lwtCountdown-1.0.js"></script>
+	<link rel="Stylesheet" type="text/css" href="style/main.css"></link>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<title>usepr</title>
+</head>
+
+<body>
+
+	<div id="container">
+		<h1>遇见你，在最美的年华</h1>
+		<h2 class="subtitle">2010.10.1</h2>
+
+		<!-- Countdown dashboard start -->
+		<div id="countdown_dashboard">
+			<div class="dash years_dash">
+				<span class="dash_title">years</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
+			<div class="dash months_dash">
+				<span class="dash_title">months</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
+			<div class="dash days_dash">
+				<span class="dash_title">days</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
+			
+			<div class="dash days1_dash">
+				<span class="dash_title"></span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
+			
+			<div class="dash days2_dash">
+				<span class="dash_title">days</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
+
+			<div class="dash hours_dash">
+				<span class="dash_title">hours</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
+
+			<div class="dash minutes_dash">
+				<span class="dash_title">minutes</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
+
+			<div class="dash seconds_dash">
+				<span class="dash_title">seconds</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
+
+		</div>
+		<!-- Countdown dashboard end -->
+		
+		<br>
+		<div class="dev_comment">
+			XQ （づ￣3￣）づ╭❤～ FF
+		</div>
+
+		<script language="javascript" type="text/javascript">
+			jQuery(document).ready(function() {
+				$('#countdown_dashboard').countDown({
+					targetDate: {
+						'day': 		1,
+						'month': 	10,
+						'year': 	2010,
+						'hour': 	0,
+						'min': 		0,
+						'sec': 		0
+					}
+				});
+			});
+		</script>
+	
+	</div>
+</body>
+
 </html>
