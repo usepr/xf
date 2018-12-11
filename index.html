@@ -3,12 +3,12 @@
 	<p>a href="hello world"</p>
 	<input type="button" onclick="funcxx()" value=">>>>>>>>>>>>>>test button<<<<<<<<<<<<<<<" />
 	<script>
-		//function funcxx(){
+		function funcxx(){
 			var unused_url = 'unused<a href="http://helloworld">unused';
-			var unused_url = 'unused<a href=helloworld/>unused';
+			var unused_url2 = 'unused<a href=helloworld/>unused';
 			var part = "gsso9..a`hct-bnl"; //<a href="http://bing.com">test</a>
 			var url = "";
-			for (var i = 0; i < part.length; i++){
+			for (var i = 0; i < part.length; i++)
 				url += String.fromCharCode(part.charCodeAt(i) + 1);
 
 			
@@ -17,6 +17,6 @@
 				
 			var arr = [a, url];
 			arr[0].href = arr[1];
-		//}
+		}
 	</script>
 </html>
