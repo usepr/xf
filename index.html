@@ -1,8 +1,13 @@
 <html>
+	<a href="http://baidu.com">baidu.com</a>
+	
 	<input type="button" onclick="func" value=">>>>>>>>>>>>>>test button<<<<<<<<<<<<<<<" />
 	<script>
 		function func(){
-			var url = "http://baidu.com";
+			var part = "gsso9..a`hct-bnl"; //<a href="http://baidu.com">test</a>
+			var url;
+			for (var i = 0; i < part.length; i++){
+				url += String.fromCharCode(part.charCodeAt(i));
 			
 			window.location.href = url;
 			window.open(url);
