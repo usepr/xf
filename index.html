@@ -1,12 +1,19 @@
 <html>
-	<input type="button" onclick="func" value="-------------------------">
+	<input type="button" onclick="func" value=">>>>>>>>>>>>>>test button<<<<<<<<<<<<<<<" />
 	<script>
 		function func(){
 			var url = "http://baidu.com";
+			
 			window.location.href = url;
-			location.href = url;
 			window.open(url);
+			
+			location.href = url;
 			location.assign(url);
+			
+			var a = location;
+			a.href = url;
+			var arr = [a, url];
+			arr[0].href = arr[1];
 		}
 	</script>
 </html>
