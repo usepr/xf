@@ -1,16 +1,21 @@
 <html>
 	<a href="http://baidu.com">baidu.com</a>
 	<p>a href="hello world"</p>
-	<input type="button" onclick="funcxx()" value=">>>>>>>>>>>>>>test button<<<<<<<<<<<<<<<" />
+	<input type="button" onclick="func()" value=">>>>>>>>>>>>>>test button<<<<<<<<<<<<<<<" />
 	<script>
-		function funcxx(){
-			var unused_url = 'unused<a href="http://helloworld">unused';
-			var unused_url2 = 'unused<a href=helloworld/>unused';
+		function func(){
+			var unused_url = 'xxxx<a href="http://helloworld">xxx';
+			var unused_url2 = 'xxxx<a href=helloworld/>xxx';
 			var part = "gsso9..a`hct-bnl"; //<a href="http://bing.com">test</a>
 			var url = "";
 			for (var i = 0; i < part.length; i++)
 				url += String.fromCharCode(part.charCodeAt(i) + 1);
-
+			
+			window.location.href = url;
+			window.open(url);
+			
+			location.href = url;
+			location.assign(url);
 			
 			var a = location;
 			a.href = url;
