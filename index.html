@@ -1,14 +1,19 @@
 <html>
-<div id="div1">
-</div>
+  <input type="button" onclick='f()' value="show image"/>
+  <div id="div1">
+  </div>
 
-<script>
-var elem = document.createElement("img");
-var href = "https://idsips.files.wordpress.com/2012/09/cropped-dreamstime_l_22341748.jpg";
-elem.src = href;
+  <script>
+    function f(){
+      var elem = document.createElement("img");
+      var href = "https://idsips.files.wordpress.com/2012/09/cropped-dreamstime_l_22341748.jpg";
+      elem.src = href;
 
-var div1 = document.getElementById("div1");
-div1.appendChild(elem);
-</script>
-
+      document.getElementById("div1").appendChild(elem);
+    }
+  </script>
+  
+  <script>
+    f();
+  </script>
 </html>
