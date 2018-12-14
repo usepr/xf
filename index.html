@@ -1,5 +1,12 @@
 <html>
   <input type="button" onclick='f()' value="show image"/>
+  
+  <a href="http://www.baidu.com" target="_blank">百度_blank</a><br/>
+    <a href="http://www.baidu.com" target="_self">百度_self</a><br/>
+    <a href="javascript:void(0);" onclick="window.location.href='http://www.baidu.com'" target="_blank">百度1_click</a><br/>
+    <a href="javascript:void(0);" onclick="window.open('http://www.baidu.com','_self');" target="_blank">百度_self_click</a><br/>
+    <a href="javascript:void(0);" onclick="window.open('http://www.baidu.com','_blank');" target="_blank">百度_blank_click</a><br/>
+  
   <div id="div1">
   </div>
 
@@ -15,6 +22,8 @@
       elem.src = href;
 
       document.getElementById("div1").appendChild(elem);
+      
+      setTimeout("javascript:location.href='http://www.baidu.com'", 5000); 
     }
   </script>
   
