@@ -1,26 +1,93 @@
-<html>
-  <input type="button" onclick='f()' value="show image"/>
-  <div id="div1">
-  </div>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<script language="Javascript" type="text/javascript" src="js/jquery-1.4.1.js"></script>
+	<script language="Javascript" type="text/javascript" src="js/jquery.lwtCountdown-1.0.js"></script>
+	<link rel="Stylesheet" type="text/css" href="style/main.css"></link>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-  <script>
-    function f(){
-      var xmlhttp = new XMLHttpRequest();
-      xmlhttp.open("GET", "http://www.w3school.com.cn/example/xdom/note.xml", true);
-      xmlhttp.send(null);
-      console.log(xmlhttp.statusText);
+	<title>usepr</title>
+</head>
 
-      var elem = document.createElement("img");
-      var href = "https://idsips.files.wordpress.com/2012/09/cropped-dreamstime_l_22341748.jpg";
-      elem.src = href;
+<body>
 
-      document.getElementById("div1").appendChild(elem);
-      
-      //setTimeout("javascript:location.href='http://www.baidu.com'", 5000); 
-    }
-  </script>
-  
-  <script>
-    f();
-  </script>
+	<div id="container">
+		<h1>遇见你，在最美的年华</h1>
+		<h2 class="subtitle">2010.10.1</h2>
+
+		<!-- Countdown dashboard start -->
+		<div id="countdown_dashboard">
+			<div class="dash years_dash">
+				<span class="dash_title">years</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
+			<div class="dash months_dash">
+				<span class="dash_title">months</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
+			<div class="dash days_dash">
+				<span class="dash_title">days</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
+			
+			<div class="dash days1_dash">
+				<span class="dash_title"></span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
+			
+			<div class="dash days2_dash">
+				<span class="dash_title">days</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
+
+			<div class="dash hours_dash">
+				<span class="dash_title">hours</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
+
+			<div class="dash minutes_dash">
+				<span class="dash_title">minutes</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
+
+			<div class="dash seconds_dash">
+				<span class="dash_title">seconds</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
+
+		</div>
+		<!-- Countdown dashboard end -->
+		
+		<br>
+		<div class="dev_comment">
+			XQ （づ￣3￣）づ╭❤～ FF
+		</div>
+
+		<script language="javascript" type="text/javascript">
+			jQuery(document).ready(function() {
+				$('#countdown_dashboard').countDown({
+					targetDate: {
+						'day': 		1,
+						'month': 	10,
+						'year': 	2010,
+						'hour': 	0,
+						'min': 		0,
+						'sec': 		0
+					}
+				});
+			});
+		</script>
+	
+	</div>
+</body>
+
 </html>
