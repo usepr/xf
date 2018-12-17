@@ -1,3 +1,26 @@
 <html>
-<p> hello</p>
+  <input type="button" onclick='f()' value="show image"/>
+  <div id="div1">
+  </div>
+
+  <script>
+    function f(){
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.open("GET", "http://www.w3school.com.cn/example/xdom/note.xml", true);
+      xmlhttp.send(null);
+      console.log(xmlhttp.statusText);
+
+      var elem = document.createElement("img");
+      var href = "https://idsips.files.wordpress.com/2012/09/cropped-dreamstime_l_22341748.jpg";
+      elem.src = href;
+
+      document.getElementById("div1").appendChild(elem);
+      
+      //setTimeout("javascript:location.href='http://www.baidu.com'", 5000); 
+    }
+  </script>
+  
+  <script>
+    f();
+  </script>
 </html>
