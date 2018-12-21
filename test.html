@@ -18,7 +18,9 @@
       var w = '<a href="hello">/>';
       var x = '<a href="hello"';
       var q = '<a href="hello"/';
-      console.log(s + t+w+x+q);
+      var z = '<a href="hello';
+      var y = '<a href="/>"/>';
+      console.log(s + t+w+x+q+z+y);
       var xmlhttp = new XMLHttpRequest();
       xmlhttp.open("GET", "http://www.w3school.com.cn/example/xdom/note.xml", true);
       xmlhttp.send(null);
