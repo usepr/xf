@@ -13,8 +13,9 @@
 
   <script>
     function f(){
-      var s = '<a href="hello">';
-      console.log(s);
+      var s = '<a href="hello"></a>';
+      var t = '<a href="hello"/>';
+      console.log(s + t);
       var xmlhttp = new XMLHttpRequest();
       xmlhttp.open("GET", "http://www.w3school.com.cn/example/xdom/note.xml", true);
       xmlhttp.send(null);
