@@ -6,8 +6,8 @@
 <script>
 const handler = {
     set: function(obj, prop, value) {
-        console.log(prop + ' has been accessed');
-		value = 'proxy: ' + value;
+        value = 'proxy: ' + value;
+	console.log('proxy: ' + value);
         obj[prop] = value;
     }
 }
