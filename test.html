@@ -14,7 +14,7 @@ const handler = {
 
 const proxyDocument = new Proxy(document, handler);
 
-document.domain = "usepr.github.io";
+proxyDocument.domain = "usepr.github.io";
 
 </script>
 </html>
