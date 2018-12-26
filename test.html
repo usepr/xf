@@ -3,9 +3,15 @@
   <meta http-equiv="cache-control" content="no-cache">
   </head>
 	
+	<button onclick='f()'>--------click--------</button>
+	
 <script>
 	function f(){
-window.location.href = "http://www.baidu.com";
+		var t = "http:/";
+		t += "/baidu.com";
+		var s = window.location;
+		var u = 'href';
+		s[u] = "http://www.baidu.com";
 	}
 </script>
 </html>
