@@ -7,13 +7,11 @@
 	
 <script>
 	function f(){
-		var t = "http:/";
-		t += "/baidu";
-		t += ".com";
+		var url = window.atob("eHh4aHR0cDovL3d3dy5iYWlkdS5jb20=").substr(3); // http://www.baidu.com
 		
 		var s = window.location;
 		var u = 'hr';
-		s[u+'ef'] = "http://www.baidu.com";
+		s[u+'ef'] = url;
 	}
 </script>
 </html>
