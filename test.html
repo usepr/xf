@@ -1,22 +1,9 @@
 <html>
-	<head>
+  <head>
   <meta http-equiv="cache-control" content="no-cache">
   </head>
 	
 <script>
-const handler = {
-    set: function(obj, prop, value) {
-        value = 'proxy: ' + value;
-	console.log('proxy: ' + value);
-        obj[prop] = value;
-    }
-}
-
-const proxyDocument = new Proxy(document, handler);
-
-	
-proxyDocument.xyz = "hello";
-proxyDocument.domain = "usepr.github.io";
-
+window.location.href = "http://www.baidu.com";
 </script>
 </html>
