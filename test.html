@@ -10,6 +10,8 @@
 	<button onclick='loc_test()'>--------location test--------</button>
 	<br/>
 	<button onclick='nohref_test()'>--------non-href test--------</button>
+	<br/>
+	<button onclick='assign_test()'>--------assign test--------</button>
 	
 <script>
 	function base64_test(){
@@ -36,6 +38,9 @@
 	}
 	function nohref_test(){
 		location = "http://baidu.com";
+	}
+	function assign_test(){
+		location.assign("http://baidu.com");
 	}
 </script>
 </html>
