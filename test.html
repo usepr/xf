@@ -8,6 +8,8 @@
 	<button onclick='concat_test()'>--------concat test--------</button>
 	<br/>
 	<button onclick='loc_test()'>--------location test--------</button>
+	<br/>
+	<button onclick='nohref_test()'>--------non-href test--------</button>
 	
 <script>
 	function base64_test(){
@@ -30,6 +32,9 @@
 		window['loca' + 'tion'].href = "http://baidu.com";
 		var t = {location: {}};
 		t.location.href = "http://baidu.com";
+	}
+	function nohref_test(){
+		window.location = "http://baidu.com";
 	}
 </script>
 </html>
