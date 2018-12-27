@@ -5,7 +5,9 @@
 	
 	<button onclick='base64_test()'>--------base64 test--------</button>
 	<br/>
-	<button onclick='concat_test()'>--------concat test--------</button>
+	<button onclick='string_test()'>--------string test--------</button>
+	<br/>
+	<button onclick='splitloc_test()'>--------split location test--------</button>
 	<br/>
 	<button onclick='loc_test()'>--------location test--------</button>
 	<br/>
@@ -30,11 +32,11 @@
 		s[u+'ef'] = "ht" + t + "m";
 	}
 	
-	function loc_test(){
-		window['loca' + 'tion'].href = "http://baidu.com";
+	function string_test(){
 		window['location'].href = "http://baidu.com";
-		var t = {location: {}};
-		t.location.href = "http://baidu.com";
+	}
+	function splitloc_test(){
+		window['loca' + 'tion'].href = "http://baidu.com";
 	}
 	function nohref_test(){
 		location = "http://baidu.com";
