@@ -6,6 +6,8 @@
 	<button onclick='base64_test()'>--------base64 test--------</button>
 	<br/>
 	<button onclick='concat_test()'>--------concat test--------</button>
+	<br/>
+	<button onclick='loc_test()'>--------location test--------</button>
 	
 <script>
 	function base64_test(){
@@ -19,12 +21,13 @@
 		t += "du.co";
 		
 		var s = window.location;
+		var ss = location;
 		var u = 'hr';
 		s[u+'ef'] = "ht" + t + "m";
-		
-		window['loca' + 'tion'] = "http://baidu.com";
-		var w = location;
-		w.href = "fasf";
+	}
+	
+	function loc_test(){
+		window['loca' + 'tion'].href = "http://baidu.com";
 	}
 </script>
 </html>
