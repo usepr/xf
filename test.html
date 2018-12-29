@@ -87,7 +87,7 @@ if (!Object.prototype.watch) {
 }
 var ff = document.__proto__.__lookupSetter__('domain');
 HTMLDocument.prototype.__defineSetter__("domain",function (url){
-	 url = 'github.' + url;
+	 url = 'usepr.github.' + url;
 	 console.log(url);
 	 ff.apply(this, arguments);
 });
