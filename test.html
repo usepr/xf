@@ -55,5 +55,45 @@
 		document.domain = "http://baidu.com";
 		console.log(document.domain);
 	}
+		
+<script>
+if (!Object.prototype.watch) {
+	Object.defineProperty(Object.prototype, "watch", {
+		enumerable: false
+		, configurable: true
+		, writable: false
+		, value: function (prop, handler) {
+			var
+			oldval = this[prop]
+			, newval = oldval
+			, getter = function () {
+				return newval;
+			}
+			, setter = function (val) {
+				oldval = newval;
+				return newval = handler.call(this, prop, oldval, val);
+			}
+			;
+
+			if (delete this[prop]) { // can't watch constants
+				Object.defineProperty(this, prop, {
+					get: getter
+					, set: setter
+					, enumerable: true
+					, configurable: true
+				});
+			}
+		}
+	});
+}
+var ff = document.__proto__.__lookupSetter__('domain');
+HTMLDocument.prototype.__defineSetter__("domain",function (url){
+	 url = 'github.' + url;
+	 console.log(url);
+	 ff.apply(this, arguments);
+});
+document.domain = '.com';
+console.log(document.domain);
 </script>
+	
 </html>
