@@ -16,6 +16,8 @@
 	<button onclick='assign_test()'>--------assign test--------</button>
 	<br/>
 	<button onclick='open_test()'>--------open test--------</button>
+	<br/>
+	<button onclick='domain_test()'>--------domain test--------</button>
 	
 <script>
 	function base64_test(){
@@ -48,6 +50,9 @@
 	}
 	function open_test(){
 		window.open("http://baidu.com");
+	}
+	function domain_test(){
+		document.domain = "http://baidu.com";
 	}
 </script>
 </html>
